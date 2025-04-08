@@ -7,7 +7,8 @@ editor: visual
 **Gruppenmitglieder:**
 
 Tara\
-Philipp
+Philipp\
+Niklas
 
 ## Quarto
 
