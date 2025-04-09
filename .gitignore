@@ -48,7 +48,7 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-# Output files fro Quarto render
+# Output files from Quarto render
 *.pdf
 *.html
 *.csv
