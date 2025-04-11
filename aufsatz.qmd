@@ -9,7 +9,8 @@ editor: visual
 Tara\
 Philipp\
 Niklas\
-Vivien
+Vivien\
+Jonas
 
 ## Quarto
 
