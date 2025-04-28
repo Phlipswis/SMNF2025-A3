@@ -1,34 +1,48 @@
 ---
 title: "Aufsatz"
-format: html
+date: today
+
+author:
+  - Tara Dethlefsen
+  - Philipp Wisser
+  - Niklas von der Fecht
+  - Vivien Ramhold
+  - Jonas Joost
+  
+format:
+  html: default
+  pdf:
+    papersize: a4
+    fontsize: 12pt
+    number-sections: true
+    
 editor: visual
 ---
 
-**Gruppenmitglieder:**
-
-Tara\
-Philipp\
-Niklas\
-Vivien\
-Jonas
-
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
-```
-
-You can add options to executable code like this
+## Github Repository und Commit-Hash
+- **Repository:** [https://github.com/Phlipswis/SMNF2025-A3]
 
 ```{r}
 #| echo: false
-2 * 2
+gitHash = system("git rev-parse HEAD", intern = TRUE)
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+- **Commit-Hash:** `{r} gitHash`
+
+# Code of Conduct
+*CoC*
+
+# 1 Einleitung
+*Einleitung*
+
+# 2 Literaturübersicht
+*Literaturübersicht*
+
+# 3 Methode
+*Methodik*
+
+# 4 Ergebnisse
+*Ergebnisse*
+
+# 5 Diskussion
+*Diskussion*
