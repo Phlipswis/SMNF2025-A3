@@ -1,8 +1,1 @@
-Großes Sideeye an Niklas
-
-
-
-Das ist ein Test
-
-
-Raider heißt jetzt Twix, sonst ändert sich nix
+Living document for research at the University of Lübeck
