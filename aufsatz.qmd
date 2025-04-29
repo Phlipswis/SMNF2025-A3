@@ -16,6 +16,9 @@ format:
     fontsize: 12pt
     number-sections: true
     
+bibliography: quellen.bib
+csl: apa.csl
+
 editor: visual
 ---
 
@@ -41,9 +44,11 @@ In allen anderen Fällen wird die Nutzung von KI-Tools gemäß der Richtlinien v
 
 # 1 Einleitung
 *Einleitung*
+[@qin_timing_2025], [@moon_fact-checking_2025], [@lu_effects_2022]
 
 # 2 Literaturübersicht
-*Literaturübersicht*
+::: {#refs}
+:::
 
 # 3 Methode
 *Methodik*
