@@ -22,7 +22,7 @@ csl: apa.csl
 editor: visual
 ---
 
-## Github Repository und Commit-Hash
+**Github Repository und Commit-Hash**
 
 -   **Repository:** \[https://github.com/Phlipswis/SMNF2025-A3\]
 
@@ -31,36 +31,41 @@ editor: visual
 gitHash = system("git rev-parse HEAD", intern = TRUE)
 ```
 
--   **Commit-Hash:** `{r} gitHash`
+-   **Commit-Hash:** `{r} gitHash`\
 
-# Code of Conduct
+**Code of Conduct**
 
 Mit dem Folgenden haben wir gemeinsame Regeln und Grundsätze formuliert, die unser Miteinander und unsere Arbeitsweise leiten.
-Ein zentraler Aspekt ist der respektvolle Umgang mit Feedback sowie mit unterschiedlichen Perspektiven und Meinungen. Deshalb formulieren wir Kritik konstruktiv mit dem Ziel, gemeinsam eine Lösung zu finden.
-Die Aufteilung der Arbeitslast erfolgt in unserer Gruppe fair und unter Berücksichtigung der individuellen Fähigkeiten. Jedes Gruppenmitglied übernimmt Verantwortung für seine Aufgaben und trägt so aktiv zum Gelingen des Gesamtprojekts bei. Vereinbarte Termine betrachten wir als verbindlich. Sollte ein Termin aus nachvollziehbaren Gründen nicht eingehalten werden können, informieren wir die Gruppe frühzeitig, damit gemeinsam alternative Lösungen gefunden werden können. Wir verpflichten uns ehrlich, sorgfältig und transparent zu arbeiten. Plagiate, Datenmanipulation und andere Formen wissenschaftlichen Fehlverhaltens lehnen wir ab.
-Alle verwendeten Quellen werden ordnungsgemäß zitiert, und die Ergebnisse unserer Arbeit sind jederzeit nachvollziehbar dokumentiert. Zum Schutz der personenbezogenen und sensiblen Daten gehen wir verantwortungsvoll mit den Informationen um, die uns anvertraut werden. Dabei halten wir uns an die geltenden Datenschutzrichtlinien und sorgen dafür, dass Daten nur für die vorgesehenen Zwecke verwendet und vor unbefugtem Zugriff geschützt werden.
-Die Nutzung von KI-Tools beschränkt sich auf die Korrektur von Rechtschreibung und Grammatik sowie das Generieren von R- und Quarto-Code. In allen anderen Fällen wird die Nutzung von KI-Tools gemäß der Richtlinien von APA-7 kenntlich gemacht.
 
-# 1 Einleitung
+Ein zentraler Aspekt ist der respektvolle Umgang mit Feedback sowie mit unterschiedlichen Perspektiven und Meinungen. Deshalb formulieren wir Kritik konstruktiv mit dem Ziel, gemeinsam eine Lösung zu finden. Die Aufteilung der Arbeitslast erfolgt in unserer Gruppe fair und unter Berücksichtigung der individuellen Fähigkeiten. Jedes Gruppenmitglied übernimmt Verantwortung für seine Aufgaben und trägt so aktiv zum Gelingen des Gesamtprojekts bei. Vereinbarte Termine betrachten wir als verbindlich. Sollte ein Termin aus nachvollziehbaren Gründen nicht eingehalten werden können, informieren wir die Gruppe frühzeitig, damit gemeinsam alternative Lösungen gefunden werden können. Wir verpflichten uns ehrlich, sorgfältig und transparent zu arbeiten. Plagiate, Datenmanipulation und andere Formen wissenschaftlichen Fehlverhaltens lehnen wir ab. Alle verwendeten Quellen werden ordnungsgemäß zitiert, und die Ergebnisse unserer Arbeit sind jederzeit nachvollziehbar dokumentiert. Zum Schutz der personenbezogenen und sensiblen Daten gehen wir verantwortungsvoll mit den Informationen um, die uns anvertraut werden. Dabei halten wir uns an die geltenden Datenschutzrichtlinien und sorgen dafür, dass Daten nur für die vorgesehenen Zwecke verwendet und vor unbefugtem Zugriff geschützt werden. Die Nutzung von KI-Tools beschränkt sich auf die Korrektur von Rechtschreibung und Grammatik sowie das Generieren von R- und Quarto-Code. In allen anderen Fällen wird die Nutzung von KI-Tools gemäß der Richtlinien von APA-7 kenntlich gemacht.
 
-Misinformation auf Social Media stellt ein zentrales Problem dar. Insbesondere seit den US-Wahlen im Jahr 2016 ist das Interesse gestiegen, diese Misinformationen zu detektieren. Angesichts der Informationsflut ist eine manuelle Verifikation jedoch nicht flächendeckend umsetzbar. KI-gestützte Systeme bieten durch automatisierte Faktenprüfung die Möglichkeit, schneller und umfangreicher zu arbeiten. Neben der automatisierten Faktenprüfung gibt es auch KI-Methoden der Sprach- und Sentimentanalyse. Die Art des KI-Einsatzes ist entscheidend für den Erfolg der Erkennung von Misinformationen [@santos_artificial_2023].\
-[@gondwe_can_2025] analysierte vor diesem Hintergrund verschiedene KI-Modelle zur Erkennung von Misinformation bezogen auf die erste US-Präsidentschaftsdebatte im Jahr 2024. Deep-Learning-Ansätze wie BERT erreichten die höchste Genauigkeit mit 94,8 %. Diese Methode ist jedoch aufgrund des hohen Rechenaufwands schwer skalierbar und demnach nicht gut in Echtzeit realisierbar. Andere Modelle mit geringerem Rechenaufwand machen jeodch Abstriche in der Genauigkeit. Es stellt sich also die Frage, welche Aspekt für die Nutzer überwiegt. Ein weiterer Aspekt für den Erfolg der Erkennung von Misinformationen mit Hilfe von KI ist die zeitliche Einbettung.\
-[@qin_timing_2025] zeigten in einer Studie, dass der Einsatz von KI die Kreativität der Nutzenden beschränkt, sofern zuvor keine eigenen Ideen entwickelt wurden. Diesen Befund wollen wir auf die Bekämpfung von Misinformationen übertragen. Wir vermuten, dass auch hier die zeitliche Einbettung der KI für den Erfolg entscheidend ist. Nicht nur technische, sondern auch soziale Einflüsse sind wichtig zu betrachten.\
-[@lu_effects_2022] zeigen, dass Nutzer KI-Feedback in Abwesenheit sozialen Hinweisen stark vertrauen. Unter sozialem Druck relativiert sich dieses Vertrauen, was die Komplexität der Nutzer-KI- Interaktion unterstreicht. Auf Social Media könnten Kommentare demnach die KI-Einordung von Misinformationen überschatten. Alle genannten Studien zeigen, dass KI wirksam gegen Misinformation auf Social Media eingesetzt werden kann. Die Effektivität hängt jedoch von mehreren Rahmenbedingungen ab. Dazu zählen die unterschiedliche Genauigkeit der Systeme, der Zeitpunkt des Einsatzes und der soziale Kontext. Diese Faktoren werden wir im Extended Abstract weiter analysieren.
+# Einleitung
 
-# 2 Literaturübersicht
+*Einleitung*
+
+# Literaturübersicht
+
+Misinformation stellt ein zentrales Problem auf Social Media dar. Insbesondere seit den US-Wahlen im Jahr 2016 ist das Interesse gestiegen, diese Misinformationen zu detektieren. Angesichts der Informationsflut ist eine manuelle Verifikation jedoch nicht flächendeckend umsetzbar. KI-gestützte Systeme bieten durch automatisierte Faktenprüfung die Möglichkeit, schneller und umfangreicher zu arbeiten. Neben der automatisierten Faktenprüfung gibt es auch KI-Methoden der Sprach- und Sentimentanalyse. Die Art des KI-Einsatzes ist entscheidend für den Erfolg der Erkennung von Misinformationen [@santos_artificial_2023].
+
+Gondwe (2025) analysierte vor diesem Hintergrund verschiedene KI-Modelle zur Erkennung von Misinformation bezogen auf die erste US-Präsidentschaftsdebatte im Jahr 2024. Deep-Learning-Ansätze wie BERT erreichten die höchste Genauigkeit mit 94,8 %. Diese Methoden sind jedoch aufgrund des hohen Rechenaufwands schwer skalierbar und demnach nicht in Echtzeit realisierbar. Andere Modelle mit geringerem Rechenaufwand machen hingegen Abstriche in der Genauigkeit [@gondwe_can_2025]. Es stellt sich demnach die Frage, welcher Aspekt für die Nutzer bezogen auf die KI als Werkzeug überwiegt.
+
+Ein weiterer Aspekt für den Erfolg der Erkennung von Misinformationen mit Hilfe von KI ist die zeitliche Einbettung. Qin et al. [-@qin_timing_2025] zeigten in einer Studie, dass der Einsatz von KI die Kreativität der Nutzenden beschränkt, sofern zuvor keine eigenen Ideen entwickelt wurden. Diesen Befund wollen wir auf die Bekämpfung von Misinformationen übertragen. Wir vermuten, dass auch hier die zeitliche Einbettung der KI für den Erfolg entscheidend ist.
+
+Nicht nur technische, sondern auch soziale Einflüsse sind wichtig zu betrachten. Lu et al. [-@lu_effects_2022] konnten zeigen, dass Nutzer KI-generiertem Feedback insbesondere dann vertrauen, wenn soziale Hinweise fehlen. Unter sozialem Druck relativiert sich dieses Vertrauen, was die Komplexität der Nutzer-KI-Interaktion unterstreicht. Auf Social Media könnten Kommentare demnach die KI-Einordnung von Misinformationen überschatten.
+
+Alle genannten Studien zeigen, dass KI wirksam gegen Misinformationen auf Social Media eingesetzt werden kann. Die Effektivität hängt jedoch von mehreren Rahmenbedingungen ab. Dazu zählt die unterschiedliche Genauigkeit der Systeme, der Zeitpunkt des Einsatzes und der soziale Kontext. Diese Faktoren wollen wir im Extended Abstract weiter analysieren.
 
 ::: {#refs}
 :::
 
-# 3 Methode
+# Methode
 
 *Methodik*
 
-# 4 Ergebnisse
+# Ergebnisse
 
 *Ergebnisse*
 
-# 5 Diskussion
+# Diskussion
 
 *Diskussion*
