@@ -49,8 +49,11 @@ po/*~
 rsconnect/
 
 # Output files from Quarto render
-*.pdf
-*.html
-*.csv
+/*.pdf
+/*.html
+/*.csv
 files/*
 aufsatz_files/*
+
+# Word Transkripte
+/Transkripte/*.docx
