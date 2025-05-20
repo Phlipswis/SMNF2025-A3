@@ -39,17 +39,13 @@ gitHash = system("git rev-parse HEAD", intern = TRUE)
 
 Mit dem Folgenden haben wir gemeinsame Regeln und Grundsätze formuliert, die unser Miteinander und unsere Arbeitsweise leiten.
 
-Ein zentraler Aspekt ist der respektvolle Umgang mit Feedback sowie unterschiedlichen Perspektiven und Meinungen. Deshalb formulieren wir Kritik konstruktiv mit dem Ziel, gemeinsam eine Lösung zu finden.
-Die Aufteilung der Arbeitslast erfolgt in unserer Gruppe fair und unter Berücksichtigung der individuellen Fähigkeiten. Jedes Gruppenmitglied übernimmt Verantwortung für seine Aufgaben und trägt so aktiv zum Gelingen des Gesamtprojekts bei.
-Vereinbarte Termine betrachten wir als verbindlich. Sollte ein Termin aus nachvollziehbaren Gründen nicht eingehalten werden können, informieren wir die Gruppe frühzeitig, damit gemeinsam alternative Lösungen gefunden werden können.
+Ein zentraler Aspekt ist der respektvolle Umgang mit Feedback sowie unterschiedlichen Perspektiven und Meinungen. Deshalb formulieren wir Kritik konstruktiv mit dem Ziel, gemeinsam eine Lösung zu finden. Die Aufteilung der Arbeitslast erfolgt in unserer Gruppe fair und unter Berücksichtigung der individuellen Fähigkeiten. Jedes Gruppenmitglied übernimmt Verantwortung für seine Aufgaben und trägt so aktiv zum Gelingen des Gesamtprojekts bei. Vereinbarte Termine betrachten wir als verbindlich. Sollte ein Termin aus nachvollziehbaren Gründen nicht eingehalten werden können, informieren wir die Gruppe frühzeitig, damit gemeinsam alternative Lösungen gefunden werden können.
 
-Wir verpflichten uns ehrlich, sorgfältig und transparent zu arbeiten. Plagiate, Datenmanipulation und andere Formen wissenschaftlichen Fehlverhaltens lehnen wir ab.
-Alle verwendeten Quellen werden ordnungsgemäß zitiert, und die Ergebnisse unserer Arbeit sind jederzeit nachvollziehbar dokumentiert.
+Wir verpflichten uns ehrlich, sorgfältig und transparent zu arbeiten. Plagiate, Datenmanipulation und andere Formen wissenschaftlichen Fehlverhaltens lehnen wir ab. Alle verwendeten Quellen werden ordnungsgemäß zitiert, und die Ergebnisse unserer Arbeit sind jederzeit nachvollziehbar dokumentiert.
 
 Zum Schutz der personenbezogenen und sensiblen Daten gehen wir verantwortungsvoll mit den Informationen um, die uns anvertraut werden. Dabei halten wir uns an die geltenden Datenschutzrichtlinien und sorgen dafür, dass Daten nur für die vorgesehenen Zwecke verwendet und vor unbefugtem Zugriff geschützt werden.
 
-Die Nutzung von Künstlicher Intelligenz (KI) beschränkt sich auf die Korrektur von Rechtschreibung und Grammatik sowie das Generieren von R- und Quarto-Code.
-In allen anderen Fällen wird die Nutzung von KI-Tools gemäß der Richtlinien der American Psychological Association in der 7. Auflage kenntlich gemacht.
+Die Nutzung von Künstlicher Intelligenz (KI) beschränkt sich auf die Korrektur von Rechtschreibung und Grammatik sowie das Generieren von R- und Quarto-Code. In allen anderen Fällen wird die Nutzung von KI-Tools gemäß der Richtlinien der American Psychological Association in der 7. Auflage kenntlich gemacht.
 
 # Einleitung
 
@@ -67,44 +63,29 @@ Nicht nur technische, sondern auch soziale Einflüsse sind wichtig zu betrachten
 
 Alle genannten Studien zeigen, dass KI wirksam gegen Misinformationen auf Social Media eingesetzt werden kann. Die Effektivität hängt jedoch von mehreren Rahmenbedingungen ab. Dazu zählt die unterschiedliche Genauigkeit der Systeme, der Zeitpunkt des Einsatzes und der soziale Kontext. Diese Faktoren wollen wir im Extended Abstract weiter analysieren.
 
-::: {#refs}
-:::
-
 # Methode
 
-Für die Beantwortung unserer Forschungsfrage entschieden wir uns für einen qualitativen Ansatz, denn wir verfolgen das Ziel, individuelle Erfahrungen und Sichtweisen detailliert zu erfassen und zu verstehen.
-Im Mittelpunkt steht dabei die Frage, welche Nutzungsanforderungen an KI als Werkzeug zur Unterstützung bei der Detektion von Misinformation auf Social Media bestehen.
+## Qualitative Methode
 
-Zur Datenerhebung führten wir jeweils ein leitfadengestütztes Interview mit insgesamt drei Teilnehmenden durch.
-Die Rekrutierung der Teilnehmenden erfolgte gezielt durch persönliche Ansprache.
-Dabei achteten wir darauf, dass sie über grundlegende Kenntnisse im Umgang mit KI verfügten.
-Die Interviews wurden entweder online mit Aufzeichnung über OBS-Studio durchgeführt oder vor Ort unter Verwendung eines Smartphone-Diktiergeräts.
-Vor Beginn der Interviews unterzeichneten alle Teilnehmenden eine Einwilligungserklärung mit Informationen zur Studie, Datenschutz und anonymisierter Auswertung.
-Die Gespräche wurden anschließend mit der Transkriptionssoftware Whisper verschriftlicht, folgend händisch überarbeitet und anonymisiert.
+Für die Beantwortung unserer Forschungsfrage entschieden wir uns für einen qualitativen Ansatz, denn wir verfolgen das Ziel, individuelle Erfahrungen und Sichtweisen detailliert zu erfassen und zu verstehen. Im Mittelpunkt steht dabei die Frage, welche Nutzungsanforderungen an KI als Werkzeug zur Unterstützung bei der Detektion von Misinformation auf Social Media bestehen.
 
-Für die Analyse verwendeten wir die Thematische Analyse nach Braun und Clarke.
-Ziel war es, aus dem Material übergeordnete Themen zu extrahieren, die zentrale Anforderungen der Nutzenden widerspiegeln.
-Die Analyse wurde manuell in Microsoft Word durchgeführt und erfolgte induktiv. 
-Zunächst haben wir die Transkripte unabhängig voneinander analysiert. Anschließend wurden die identifizierten Codes und Themen im Abgleich zusammengeführt.
-Bei abweichenden Codierungen wurden die Unterschiede besprochen und schließlich zu einer validen und konsistenten Kategorisierung zusammengefügt.
-Durch dieses Vorgehen wurde die Subjektivität einzelner Interpretationen reduziert und eine möglichst transparente Auswertung gewährleistet.
+Zur Datenerhebung führten wir jeweils ein leitfadengestütztes Interview mit insgesamt drei Teilnehmenden durch. Die Rekrutierung der Teilnehmenden erfolgte gezielt durch persönliche Ansprache. Dabei achteten wir darauf, dass sie über grundlegende Kenntnisse im Umgang mit KI verfügten. Die Interviews wurden entweder online mit Aufzeichnung über OBS-Studio durchgeführt oder vor Ort unter Verwendung eines Smartphone-Diktiergeräts. Vor Beginn der Interviews unterzeichneten alle Teilnehmenden eine Einwilligungserklärung mit Informationen zur Studie, Datenschutz und anonymisierter Auswertung. Die Gespräche wurden anschließend mit der Transkriptionssoftware Whisper verschriftlicht, folgend händisch überarbeitet und anonymisiert.
 
+Für die Analyse verwendeten wir die Thematische Analyse nach Braun und Clarke. Ziel war es, aus dem Material übergeordnete Themen zu extrahieren, die zentrale Anforderungen der Nutzenden widerspiegeln. Die Analyse wurde manuell in Microsoft Word durchgeführt und erfolgte induktiv. Zunächst haben wir die Transkripte unabhängig voneinander analysiert. Anschließend wurden die identifizierten Codes und Themen im Abgleich zusammengeführt. Bei abweichenden Codierungen wurden die Unterschiede besprochen und schließlich zu einer validen und konsistenten Kategorisierung zusammengefügt. Durch dieses Vorgehen wurde die Subjektivität einzelner Interpretationen reduziert und eine möglichst transparente Auswertung gewährleistet.
 
 # Ergebnisse
 
-Unsere qualitative Analyse besteht aus drei Einzelinterviews mit Studierenden der Medieninformatik an der Universität zu Lübeck.
-Hierbei wurden die Personen nach ihren Einschätzungen zu der Nutzung von KI bei der Erkennung von Misinformationen auf sozialen Medien befragt.
-Ziel war es, Anforderungen, Erwartungen und potenzielle Probleme solcher Systeme aus Sicht der Nutzenden zu identifizieren.
-Die zentralen Themen unserer Analyse sind in @tbl-zentrale_themen zusammengefasst und im Folgenden näher beschrieben.
+## Qualitative Ergebnisse
 
-Alle Befragten gaben an, bereits Erfahrungen im Umgang mit KI gesammelt zu haben und soziale Medien überwiegend für Kommunikations- und Unterhaltungszwecke zu nutzen. Zudem sehen sie KI grundsätzlich als ein geeignetes Werkzeug zur automatisierten Faktenprüfung. So äußerte eine Person, dass durch das Abgleichen der Informationen von der KI eine Art Peer Review geschaffen wird und schloss daraus, „dass KI für [die Detektion von Misinformationen] absolut geeignet ist“ (A3_3, Zeile 86).
+Unsere qualitative Analyse besteht aus drei Einzelinterviews mit Studierenden der Medieninformatik an der Universität zu Lübeck. Hierbei wurden die Personen nach ihren Einschätzungen zu der Nutzung von KI bei der Erkennung von Misinformationen auf sozialen Medien befragt. Ziel war es, Anforderungen, Erwartungen und potenzielle Probleme solcher Systeme aus Sicht der Nutzenden zu identifizieren. Die zentralen Themen unserer Analyse sind in @tbl-zentrale_themen zusammengefasst und im Folgenden näher beschrieben.
+
+Alle Befragten gaben an, bereits Erfahrungen im Umgang mit KI gesammelt zu haben und soziale Medien überwiegend für Kommunikations- und Unterhaltungszwecke zu nutzen. Zudem sehen sie KI grundsätzlich als ein geeignetes Werkzeug zur automatisierten Faktenprüfung. So äußerte eine Person, dass durch das Abgleichen der Informationen von der KI eine Art Peer Review geschaffen wird und schloss daraus, „dass KI für \[die Detektion von Misinformationen\] absolut geeignet ist“ (A3_3, Zeile 86).
 
 Allerdings wurde mehrfach betont, dass Transparenz eine entscheidende Voraussetzung für das Vertrauen in die KI ist. So sollten Quellen offengelegt werden, „dass man dann auch nachverfolgen kann, woher die Informationen kommen“ (A3_2, Zeile 99–100) „und vielleicht auch den Analyseweg“ (A3_1, Zeile 102-103). Den Nutzenden ist es demnach wichtig, dass im Zweifelsfall zusätzlich zur automatisierten Prüfung durch die KI eine manuelle Kontrolle möglich ist.
 
-Im Hinblick auf die Effektivität der KI-gestützten Überprüfung wurde geäußert, dass die Kennzeichnung der geprüften Inhalte visuell hervorgehoben und schnell erkennbar sein sollte. Eine Person betonte, dass es „auf jeden Fall sehr sichtbar da sein [sollte]. Also das heißt, man soll nicht danach suchen müssen“ (A3_3, Z. 218–219). Besonders in sozialen Medien ist eine solche Sichtbarkeit entscheidend, da Nutzende Inhalte meist nur flüchtig wahrnehmen. Eine deutlich erkennbare Markierung kann in diesem Kontext dazu beitragen, die Wirksamkeit der KI-Überprüfung im Alltag zu erhöhen.
+Im Hinblick auf die Effektivität der KI-gestützten Überprüfung wurde geäußert, dass die Kennzeichnung der geprüften Inhalte visuell hervorgehoben und schnell erkennbar sein sollte. Eine Person betonte, dass es „auf jeden Fall sehr sichtbar da sein \[sollte\]. Also das heißt, man soll nicht danach suchen müssen“ (A3_3, Z. 218–219). Besonders in sozialen Medien ist eine solche Sichtbarkeit entscheidend, da Nutzende Inhalte meist nur flüchtig wahrnehmen. Eine deutlich erkennbare Markierung kann in diesem Kontext dazu beitragen, die Wirksamkeit der KI-Überprüfung im Alltag zu erhöhen.
 
 In den Interviews zeigte sich deutlich, dass die inhaltliche Richtigkeit der Überprüfungen gegenüber einer schnellen Verfügbarkeit priorisiert wurde. So urteilte eine der Interviewten: „das braucht ein bisschen, aber dafür ist es dann richtig eingeordnet“ (A3_1, Z. 179–180). Diese Einschätzung ist besonders relevant, da verschiedene KI-Modelle jeweils Kompromisse in einer der beiden Kategorien eingehen. Wie bereits in unserer Literaturanalyse dargelegt, erfordern Modelle mit besonders hoher Genauigkeit einen derart hohen Rechenaufwand, dass sie für eine Echtzeit-Anwendung ungeeignet sind [@gondwe_can_2025]. Das Ergebnis unserer Interviews ist jedoch, dass eine hohe inhaltliche Präzision gegenüber einer sofortigen Einordnung klar bevorzugt wird.
-
 
 ```{r tbl-zentrale_themen}
 #| echo: false
@@ -118,7 +99,11 @@ knitr::kable(
 )
 ```
 
-
 # Diskussion
 
 *Diskussion*
+
+## Referenzen {.unnumbered}
+
+::: {#refs}
+:::
