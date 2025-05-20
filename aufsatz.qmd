@@ -71,7 +71,7 @@ Für die Beantwortung unserer Forschungsfrage entschieden wir uns für einen qua
 
 Zur Datenerhebung führten wir jeweils ein leitfadengestütztes Interview mit insgesamt drei Teilnehmenden durch. Die Rekrutierung der Teilnehmenden erfolgte gezielt durch persönliche Ansprache. Dabei achteten wir darauf, dass sie über grundlegende Kenntnisse im Umgang mit KI verfügten. Die Interviews wurden entweder online mit Aufzeichnung über OBS-Studio durchgeführt oder vor Ort unter Verwendung eines Smartphone-Diktiergeräts. Vor Beginn der Interviews unterzeichneten alle Teilnehmenden eine Einwilligungserklärung mit Informationen zur Studie, Datenschutz und anonymisierter Auswertung. Die Gespräche wurden anschließend mit der Transkriptionssoftware Whisper verschriftlicht, folgend händisch überarbeitet und anonymisiert.
 
-Für die Analyse verwendeten wir die Thematische Analyse nach Braun und Clarke. Ziel war es, aus dem Material übergeordnete Themen zu extrahieren, die zentrale Anforderungen der Nutzenden widerspiegeln. Die Analyse wurde manuell in Microsoft Word durchgeführt und erfolgte induktiv. Zunächst haben wir die Transkripte unabhängig voneinander analysiert. Anschließend wurden die identifizierten Codes und Themen im Abgleich zusammengeführt. Bei abweichenden Codierungen wurden die Unterschiede besprochen und schließlich zu einer validen und konsistenten Kategorisierung zusammengefügt. Durch dieses Vorgehen wurde die Subjektivität einzelner Interpretationen reduziert und eine möglichst transparente Auswertung gewährleistet.
+Für die Analyse verwendeten wir die Thematische Analyse nach Braun und Clarke. Ziel war es, aus dem Material übergeordnete Themen zu extrahieren, die zentrale Anforderungen der Nutzenden widerspiegeln. Die Analyse wurde manuell in Microsoft Word durchgeführt und erfolgte induktiv. Zunächst analysierten wir die Transkripte unabhängig voneinander. Anschließend wurden die identifizierten Codes und Themen im Abgleich zusammengeführt. Bei abweichenden Codierungen wurden die Unterschiede besprochen und schließlich zu einer validen und konsistenten Kategorisierung zusammengefügt. Durch dieses Vorgehen wurde die Subjektivität einzelner Interpretationen reduziert und eine möglichst transparente Auswertung gewährleistet.
 
 # Ergebnisse
 
@@ -87,16 +87,30 @@ Im Hinblick auf die Effektivität der KI-gestützten Überprüfung wurde geäuß
 
 In den Interviews zeigte sich deutlich, dass die inhaltliche Richtigkeit der Überprüfungen gegenüber einer schnellen Verfügbarkeit priorisiert wurde. So urteilte eine der Interviewten: „das braucht ein bisschen, aber dafür ist es dann richtig eingeordnet“ (A3_1, Z. 179–180). Diese Einschätzung ist besonders relevant, da verschiedene KI-Modelle jeweils Kompromisse in einer der beiden Kategorien eingehen. Wie bereits in unserer Literaturanalyse dargelegt, erfordern Modelle mit besonders hoher Genauigkeit einen derart hohen Rechenaufwand, dass sie für eine Echtzeit-Anwendung ungeeignet sind [@gondwe_can_2025]. Das Ergebnis unserer Interviews ist jedoch, dass eine hohe inhaltliche Präzision gegenüber einer sofortigen Einordnung klar bevorzugt wird.
 
-```{r tbl-zentrale_themen}
+```{r tbl-zentrale_themen, results='asis'}
 #| echo: false
-knitr::kable(
-  data.frame(
-    Thema = c("Potenzialbewertung von KI als Werkzeug", "Transparenz durch Quellenangaben", "Sichtbarkeit der Kennzeichnung", "Priorisierung der inhaltlichen Korrektheit"),
-    Erkenntnis = c("Einschätzung, dass KI bei der Identifikation von Misinformation unterstützen kann", "Forderung, dass die in der Überprüfung verwendeten Quellen offengelegt werden, um Transparenz zu gewährleisten", "Forderung, dass die Kennzeichnung der KI-Überprüfung visuell hervorgehoben wird, um Effektivität zu gewährleisen", "Bewertung, dass die inhaltliche Richtigkeit der Überprüfung wichtiger ist als deren schnelle Verfügbarkeit"),
-    Zitat = c("„[…] Peer Review quasi dadurch zu schaffen […] also glaube ich schon sehr gut, dass KI für sowas absolut geeignet ist“ (A3_3, Zeile 83-86)", "„Die Quellenangabe, dass man dann auch nachverfolgen kann, woher die Informationen kommen“ (A3_2, Zeile 99-100)", "„Es sollte auf jeden Fall sehr sichtbar da sein. Also das heißt, man soll nicht danach suchen müssen“ (A3_3, Zeile 218-219)", "„[…] dann speichert es falsch eingeordnet ab. Dann bringt einem das auch nichts, als wenn man sagt, das braucht ein bisschen, aber dafür ist es dann richtig eingeordnet und jeder kann es richtig abspeichern“ (A3_1, Zeile 177-180)")
-  ),
-  caption = "Zentrale Themen der qualitativen Analyse"
+library(kableExtra)
+
+df <- data.frame(
+  Thema = c("Potenzialbewertung von KI als Werkzeug", 
+            "Transparenz durch Quellenangaben", 
+            "Sichtbarkeit der Kennzeichnung", 
+            "Priorisierung der inhaltlichen Korrektheit"),
+  Definition = c("Einschätzung, dass KI bei der Identifikation von Misinformation unterstützen kann", 
+                 "Forderung, dass die in der Überprüfung verwendeten Quellen offengelegt werden, um Transparenz zu gewährleisten", 
+                 "Forderung, dass die Kennzeichnung der KI-Überprüfung visuell hervorgehoben wird, um Effektivität zu gewährleisen", 
+                 "Bewertung, dass die inhaltliche Richtigkeit der Überprüfung wichtiger ist als deren schnelle Verfügbarkeit"),
+  Zitat = c("„[…] Peer Review quasi dadurch zu schaffen […] also glaube ich schon sehr gut, dass KI für sowas absolut geeignet ist“ (A3_3, Zeile 83-86)", 
+            "„Die Quellenangabe, dass man dann auch nachverfolgen kann, woher die Informationen kommen“ (A3_2, Zeile 99-100)", 
+            "„Es sollte auf jeden Fall sehr sichtbar da sein. Also das heißt, man soll nicht danach suchen müssen“ (A3_3, Zeile 218-219)", 
+            "„[…] dann speichert es falsch eingeordnet ab. Dann bringt einem das auch nichts, als wenn man sagt, das braucht ein bisschen, aber dafür ist es dann richtig eingeordnet und jeder kann es richtig abspeichern“ (A3_1, Zeile 177-180)")
 )
+
+kable(df, format = "latex", booktabs = TRUE, caption = "Zentrale Themen der qualitativen Analyse", longtable = TRUE, linesep = "\\addlinespace") %>%
+  kable_styling(latex_options = c("hold_position")) %>%
+  column_spec(1, width = "4cm") %>%
+  column_spec(2, width = "5cm") %>%
+  column_spec(3, width = "5cm")
 ```
 
 # Diskussion
