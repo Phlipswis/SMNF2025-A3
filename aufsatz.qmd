@@ -26,7 +26,7 @@ editor: visual
 
 **Github Repository und Commit-Hash**
 
--   **Repository:** \[https://github.com/Phlipswis/SMNF2025-A3\]
+-   **Repository:** \[https://github.com/Phlipswis/SMNF2025-TN\]
 
 ```{r}
 #| echo: false
@@ -79,13 +79,13 @@ Für die Analyse verwendeten wir die Thematische Analyse nach Braun und Clarke. 
 
 Unsere qualitative Analyse besteht aus drei Einzelinterviews mit Studierenden der Medieninformatik an der Universität zu Lübeck. Hierbei wurden die Personen nach ihren Einschätzungen zu der Nutzung von KI bei der Erkennung von Misinformationen auf sozialen Medien befragt. Ziel war es, Anforderungen, Erwartungen und potenzielle Probleme solcher Systeme aus Sicht der Nutzenden zu identifizieren. Die zentralen Themen unserer Analyse sind in @tbl-zentrale_themen zusammengefasst und im Folgenden näher beschrieben.
 
-Alle Befragten gaben an, bereits Erfahrungen im Umgang mit KI gesammelt zu haben und soziale Medien überwiegend für Kommunikations- und Unterhaltungszwecke zu nutzen. Zudem sehen sie KI grundsätzlich als ein geeignetes Werkzeug zur automatisierten Faktenprüfung. So äußerte eine Person, dass durch das Abgleichen der Informationen von der KI eine Art Peer Review geschaffen wird und schloss daraus, „dass KI für \[die Detektion von Misinformationen\] absolut geeignet ist“ (A3_3, Zeile 86).
+Alle Befragten gaben an, bereits Erfahrungen im Umgang mit KI gesammelt zu haben und soziale Medien überwiegend für Kommunikations- und Unterhaltungszwecke zu nutzen. Zudem sehen sie KI grundsätzlich als ein geeignetes Werkzeug zur automatisierten Faktenprüfung. So äußerte eine Person, dass durch das Abgleichen der Informationen von der KI eine Art Peer Review geschaffen wird und schloss daraus, „dass KI für \[die Detektion von Misinformationen\] absolut geeignet ist“ (TN_3, Zeile 86).
 
-Allerdings wurde mehrfach betont, dass Transparenz eine entscheidende Voraussetzung für das Vertrauen in die KI ist. So sollten Quellen offengelegt werden, „dass man dann auch nachverfolgen kann, woher die Informationen kommen“ (A3_2, Zeile 99–100) „und vielleicht auch den Analyseweg“ (A3_1, Zeile 102-103). Den Nutzenden ist es demnach wichtig, dass im Zweifelsfall zusätzlich zur automatisierten Prüfung durch die KI eine manuelle Kontrolle möglich ist.
+Allerdings wurde mehrfach betont, dass Transparenz eine entscheidende Voraussetzung für das Vertrauen in die KI ist. So sollten Quellen offengelegt werden, „dass man dann auch nachverfolgen kann, woher die Informationen kommen“ (TN_2, Zeile 99–100) „und vielleicht auch den Analyseweg“ (TN_1, Zeile 102-103). Den Nutzenden ist es demnach wichtig, dass im Zweifelsfall zusätzlich zur automatisierten Prüfung durch die KI eine manuelle Kontrolle möglich ist.
 
-Im Hinblick auf die Effektivität der KI-gestützten Überprüfung wurde geäußert, dass die Kennzeichnung der geprüften Inhalte visuell hervorgehoben und schnell erkennbar sein sollte. Eine Person betonte, dass es „auf jeden Fall sehr sichtbar da sein \[sollte\]. Also das heißt, man soll nicht danach suchen müssen“ (A3_3, Z. 218–219). Besonders in sozialen Medien ist eine solche Sichtbarkeit entscheidend, da Nutzende Inhalte meist nur flüchtig wahrnehmen. Eine deutlich erkennbare Markierung kann in diesem Kontext dazu beitragen, die Wirksamkeit der KI-Überprüfung im Alltag zu erhöhen.
+Im Hinblick auf die Effektivität der KI-gestützten Überprüfung wurde geäußert, dass die Kennzeichnung der geprüften Inhalte visuell hervorgehoben und schnell erkennbar sein sollte. Eine Person betonte, dass es „auf jeden Fall sehr sichtbar da sein \[sollte\]. Also das heißt, man soll nicht danach suchen müssen“ (TN_3, Z. 218–219). Besonders in sozialen Medien ist eine solche Sichtbarkeit entscheidend, da Nutzende Inhalte meist nur flüchtig wahrnehmen. Eine deutlich erkennbare Markierung kann in diesem Kontext dazu beitragen, die Wirksamkeit der KI-Überprüfung im Alltag zu erhöhen.
 
-In den Interviews zeigte sich deutlich, dass die inhaltliche Richtigkeit der Überprüfungen gegenüber einer schnellen Verfügbarkeit priorisiert wurde. So urteilte eine der Interviewten: „das braucht ein bisschen, aber dafür ist es dann richtig eingeordnet“ (A3_1, Z. 179–180). Diese Einschätzung ist besonders relevant, da verschiedene KI-Modelle jeweils Kompromisse in einer der beiden Kategorien eingehen. Wie bereits in unserer Literaturanalyse dargelegt, erfordern Modelle mit besonders hoher Genauigkeit einen derart hohen Rechenaufwand, dass sie für eine Echtzeit-Anwendung ungeeignet sind [@gondwe_can_2025]. Das Ergebnis unserer Interviews ist jedoch, dass eine hohe inhaltliche Präzision gegenüber einer sofortigen Einordnung klar bevorzugt wird.
+In den Interviews zeigte sich deutlich, dass die inhaltliche Richtigkeit der Überprüfungen gegenüber einer schnellen Verfügbarkeit priorisiert wurde. So urteilte eine der Interviewten: „das braucht ein bisschen, aber dafür ist es dann richtig eingeordnet“ (TN_1, Z. 179–180). Diese Einschätzung ist besonders relevant, da verschiedene KI-Modelle jeweils Kompromisse in einer der beiden Kategorien eingehen. Wie bereits in unserer Literaturanalyse dargelegt, erfordern Modelle mit besonders hoher Genauigkeit einen derart hohen Rechenaufwand, dass sie für eine Echtzeit-Anwendung ungeeignet sind [@gondwe_can_2025]. Das Ergebnis unserer Interviews ist jedoch, dass eine hohe inhaltliche Präzision gegenüber einer sofortigen Einordnung klar bevorzugt wird.
 
 ```{r tbl-zentrale_themen, results='asis'}
 #| echo: false
@@ -100,10 +100,10 @@ df <- data.frame(
                  "Forderung, dass die in der Überprüfung verwendeten Quellen offengelegt werden, um Transparenz zu gewährleisten", 
                  "Forderung, dass die Kennzeichnung der KI-Überprüfung visuell hervorgehoben wird, um Effektivität zu gewährleisen", 
                  "Bewertung, dass die inhaltliche Richtigkeit der Überprüfung wichtiger ist als deren schnelle Verfügbarkeit"),
-  Zitat = c("„[…] Peer Review quasi dadurch zu schaffen […] also glaube ich schon sehr gut, dass KI für sowas absolut geeignet ist“ (A3_3, Zeile 83-86)", 
-            "„Die Quellenangabe, dass man dann auch nachverfolgen kann, woher die Informationen kommen“ (A3_2, Zeile 99-100)", 
-            "„Es sollte auf jeden Fall sehr sichtbar da sein. Also das heißt, man soll nicht danach suchen müssen“ (A3_3, Zeile 218-219)", 
-            "„[…] dann speichert es falsch eingeordnet ab. Dann bringt einem das auch nichts, als wenn man sagt, das braucht ein bisschen, aber dafür ist es dann richtig eingeordnet und jeder kann es richtig abspeichern“ (A3_1, Zeile 177-180)")
+  Zitat = c("„[…] Peer Review quasi dadurch zu schaffen […] also glaube ich schon sehr gut, dass KI für sowas absolut geeignet ist“ (TN_3, Zeile 83-86)", 
+            "„Die Quellenangabe, dass man dann auch nachverfolgen kann, woher die Informationen kommen“ (TN_2, Zeile 99-100)", 
+            "„Es sollte auf jeden Fall sehr sichtbar da sein. Also das heißt, man soll nicht danach suchen müssen“ (TN_3, Zeile 218-219)", 
+            "„[…] dann speichert es falsch eingeordnet ab. Dann bringt einem das auch nichts, als wenn man sagt, das braucht ein bisschen, aber dafür ist es dann richtig eingeordnet und jeder kann es richtig abspeichern“ (TN_1, Zeile 177-180)")
 )
 
 kable(df, format = "latex", booktabs = TRUE, caption = "Zentrale Themen der qualitativen Analyse", longtable = TRUE, linesep = "\\addlinespace") %>%
