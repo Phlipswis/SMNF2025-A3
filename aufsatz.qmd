@@ -117,7 +117,29 @@ kable(df, format = "latex", booktabs = TRUE, caption = "Zentrale Themen der qual
 
 *Diskussion*
 
-## Referenzen {.unnumbered}
+# Referenzen {.unnumbered}
 
 ::: {#refs}
 :::
+
+# Anhang 1 - Rekrutierungstext {.unnumbered}
+**Online-Studie zur Erkennung von Misinformation auf Social Media**
+
+Hast du schonmal einen Post auf Social Media gesehen und warst dir nicht sicher, ob er wahr oder falsch ist? Misinformation auf Social Media ist oft schwer zu erkennen. In unsere Online-Studie untersuchen wir, inwiefern Künstliche Intelligenz dabei unterstützen kann, solche Inhalte besser zu identifizieren.
+
+Du kannst an der Studie teilnehmen, wenn du:
+
+- mindestens 18 Jahre alt bist,
+- gut Deutsch sprichst,
+- einen PC oder ein Tablet zur Verfügung hast (keine Smartphone-Teilnahme möglich),
+- und etwa 60 Minuten Zeit mitbringst.
+
+**Teilnahmelink:**
+
+https://dsslab.hciuse.sh/study/pilot?groupId=gr-a3
+
+*(Bitte im Browser auf einem PC oder Tablet öffnen.)*
+
+
+**Vergütung:** Studierende der Medieninformatik oder Psychologie an der Universität zu Lübeck können 1 VP-Stunde erhalten. Wichtig:
+Teilnehmende an der Veranstaltung SMNF dürfen die Studie nicht bearbeiten.
