@@ -55,7 +55,7 @@ Die Nutzung von Künstlicher Intelligenz (KI) beschränkt sich auf die Korrektur
 
 Misinformation stellt ein zentrales Problem auf Social Media dar. Insbesondere seit den Wahlen in den Vereinigten Staaten im Jahr 2016 ist das Interesse gestiegen, diese Misinformationen zu detektieren. Angesichts der Informationsflut ist eine manuelle Verifikation jedoch nicht flächendeckend umsetzbar. KI-gestützte Systeme bieten durch automatisierte Faktenprüfung die Möglichkeit, schneller und umfangreicher zu arbeiten. Neben der automatisierten Faktenprüfung gibt es auch KI-Methoden der Sprach- und Sentimentanalyse. Die Art des KI-Einsatzes ist entscheidend für den Erfolg der Erkennung von Misinformationen [@santos_artificial_2023].
 
-Gondwe (2025) analysierte vor diesem Hintergrund verschiedene KI-Modelle zur Erkennung von Misinformation bezogen auf die erste US-Präsidentschaftsdebatte im Jahr 2024. Deep-Learning-Ansätze wie Bidirectional encoder representations from transformers erreichten die höchste Genauigkeit mit 94,8 Prozent. Diese Methoden sind jedoch aufgrund des hohen Rechenaufwands schwer skalierbar und demnach nicht in Echtzeit realisierbar. Andere Modelle mit geringerem Rechenaufwand machen hingegen Abstriche in der Genauigkeit [@gondwe_can_2025]. Es stellt sich demnach die Frage, welcher Aspekt für die Nutzer bezogen auf die KI als Werkzeug überwiegt.
+Gondwe [-@gondwe_can_2025] analysierte vor diesem Hintergrund verschiedene KI-Modelle zur Erkennung von Misinformation bezogen auf die erste US-Präsidentschaftsdebatte im Jahr 2024. Deep-Learning-Ansätze wie Bidirectional encoder representations from transformers erreichten die höchste Genauigkeit mit 94,8 Prozent. Diese Methoden sind jedoch aufgrund des hohen Rechenaufwands schwer skalierbar und demnach nicht in Echtzeit realisierbar. Andere Modelle mit geringerem Rechenaufwand machen hingegen Abstriche in der Genauigkeit [@gondwe_can_2025]. Es stellt sich demnach die Frage, welcher Aspekt für die Nutzer bezogen auf die KI als Werkzeug überwiegt.
 
 Ein weiterer Aspekt für den Erfolg der Erkennung von Misinformationen mit Hilfe von KI ist die zeitliche Einbettung. Qin et al. [-@qin_timing_2025] zeigten in einer Studie, dass der Einsatz von KI die Kreativität der Nutzenden beschränkt, sofern zuvor keine eigenen Ideen entwickelt wurden. Diesen Befund wollen wir auf die Bekämpfung von Misinformationen übertragen. Wir vermuten, dass auch hier die zeitliche Einbettung der KI für den Erfolg entscheidend ist.
 
@@ -71,7 +71,7 @@ Für die Beantwortung unserer Forschungsfrage entschieden wir uns für einen qua
 
 Zur Datenerhebung führten wir jeweils ein leitfadengestütztes Interview mit insgesamt drei Teilnehmenden durch. Die Rekrutierung der Teilnehmenden erfolgte gezielt durch persönliche Ansprache. Dabei achteten wir darauf, dass sie über grundlegende Kenntnisse im Umgang mit KI verfügten. Die Interviews wurden entweder online mit Aufzeichnung über OBS-Studio durchgeführt oder vor Ort unter Verwendung eines Smartphone-Diktiergeräts. Vor Beginn der Interviews unterzeichneten alle Teilnehmenden eine Einwilligungserklärung mit Informationen zur Studie, Datenschutz und anonymisierter Auswertung. Die Gespräche wurden anschließend mit der Transkriptionssoftware Whisper verschriftlicht, folgend händisch überarbeitet und anonymisiert.
 
-Für die Analyse verwendeten wir die Thematische Analyse nach Braun und Clarke. Ziel war es, aus dem Material übergeordnete Themen zu extrahieren, die zentrale Anforderungen der Nutzenden widerspiegeln. Die Analyse wurde manuell in Microsoft Word durchgeführt und erfolgte induktiv. Zunächst analysierten wir die Transkripte unabhängig voneinander. Anschließend wurden die identifizierten Codes und Themen im Abgleich zusammengeführt. Bei abweichenden Codierungen wurden die Unterschiede besprochen und schließlich zu einer validen und konsistenten Kategorisierung zusammengefügt. Durch dieses Vorgehen wurde die Subjektivität einzelner Interpretationen reduziert und eine möglichst transparente Auswertung gewährleistet.
+Für die Analyse verwendeten wir die Thematische Analyse nach Braun und Clarke [-@braun_using_2006]. Ziel war es, aus dem Material übergeordnete Themen zu extrahieren, die zentrale Anforderungen der Nutzenden widerspiegeln. Die Analyse wurde manuell in Microsoft Word durchgeführt und erfolgte induktiv. Zunächst analysierten wir die Transkripte unabhängig voneinander. Anschließend wurden die identifizierten Codes und Themen im Abgleich zusammengeführt. Bei abweichenden Codierungen wurden die Unterschiede besprochen und schließlich zu einer validen und konsistenten Kategorisierung zusammengefügt. Durch dieses Vorgehen wurde die Subjektivität einzelner Interpretationen reduziert und eine möglichst transparente Auswertung gewährleistet.
 
 # Ergebnisse
 
@@ -123,16 +123,17 @@ kable(df, format = "latex", booktabs = TRUE, caption = "Zentrale Themen der qual
 :::
 
 # Anhang 1 - Rekrutierungstext {.unnumbered}
+
 **Online-Studie zur Erkennung von Misinformation auf Social Media**
 
 Hast du schonmal einen Post auf Social Media gesehen und warst dir nicht sicher, ob er wahr oder falsch ist? Misinformation auf Social Media ist oft schwer zu erkennen. In unsere Online-Studie untersuchen wir, inwiefern Künstliche Intelligenz dabei unterstützen kann, solche Inhalte besser zu identifizieren.
 
 Du kannst an der Studie teilnehmen, wenn du:
 
-- mindestens 18 Jahre alt bist,
-- gut Deutsch sprichst,
-- einen PC oder ein Tablet zur Verfügung hast (keine Smartphone-Teilnahme möglich),
-- und etwa 60 Minuten Zeit mitbringst.
+-   mindestens 18 Jahre alt bist,
+-   gut Deutsch sprichst,
+-   einen PC oder ein Tablet zur Verfügung hast (keine Smartphone-Teilnahme möglich),
+-   und etwa 60 Minuten Zeit mitbringst.
 
 **Teilnahmelink:**
 
@@ -140,6 +141,4 @@ https://dsslab.hciuse.sh/study/pilot?groupId=gr-a3
 
 *(Bitte im Browser auf einem PC oder Tablet öffnen.)*
 
-
-**Vergütung:** Studierende der Medieninformatik oder Psychologie an der Universität zu Lübeck können 1 VP-Stunde erhalten. Wichtig:
-Teilnehmende an der Veranstaltung SMNF dürfen die Studie nicht bearbeiten.
+**Vergütung:** Studierende der Medieninformatik oder Psychologie an der Universität zu Lübeck können 1 VP-Stunde erhalten. Wichtig: Teilnehmende an der Veranstaltung SMNF dürfen die Studie nicht bearbeiten.
