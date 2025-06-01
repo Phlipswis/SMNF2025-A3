@@ -100,17 +100,25 @@ df <- data.frame(
                  "Forderung, dass die in der Überprüfung verwendeten Quellen offengelegt werden, um Transparenz zu gewährleisten", 
                  "Forderung, dass die Kennzeichnung der KI-Überprüfung visuell hervorgehoben wird, um Effektivität zu gewährleisen", 
                  "Bewertung, dass die inhaltliche Richtigkeit der Überprüfung wichtiger ist als deren schnelle Verfügbarkeit"),
-  Zitat = c("„[…] Peer Review quasi dadurch zu schaffen […] also glaube ich schon sehr gut, dass KI für sowas absolut geeignet ist“ (TN_3, Zeile 83-86)", 
-            "„Die Quellenangabe, dass man dann auch nachverfolgen kann, woher die Informationen kommen“ (TN_2, Zeile 99-100)", 
-            "„Es sollte auf jeden Fall sehr sichtbar da sein. Also das heißt, man soll nicht danach suchen müssen“ (TN_3, Zeile 218-219)", 
-            "„[…] dann speichert es falsch eingeordnet ab. Dann bringt einem das auch nichts, als wenn man sagt, das braucht ein bisschen, aber dafür ist es dann richtig eingeordnet und jeder kann es richtig abspeichern“ (TN_1, Zeile 177-180)")
+  Zitat = c("„[…] Peer Review quasi dadurch zu schaffen […] also glaube ich schon sehr gut, dass KI für sowas absolut geeignet ist“ (TN_3, Zeile 83–86)", 
+            "„Die Quellenangabe, dass man dann auch nachverfolgen kann, woher die Informationen kommen“ (TN_2, Zeile 99–100)", 
+            "„Es sollte auf jeden Fall sehr sichtbar da sein. Also das heißt, man soll nicht danach suchen müssen“ (TN_3, Zeile 218–219)", 
+            "„[…] dann speichert es falsch eingeordnet ab. Dann bringt einem das auch nichts, als wenn man sagt, das braucht ein bisschen, aber dafür ist es dann richtig eingeordnet und jeder kann es richtig abspeichern“ (TN_1, Zeile 177–180)")
 )
 
-kable(df, format = "latex", booktabs = TRUE, caption = "Zentrale Themen der qualitativen Analyse", longtable = TRUE, linesep = "\\addlinespace") %>%
-  kable_styling(latex_options = c("hold_position")) %>%
-  column_spec(1, width = "4cm") %>%
-  column_spec(2, width = "5cm") %>%
-  column_spec(3, width = "5cm")
+if (knitr::is_latex_output()) {
+  kable(df, format = "latex", booktabs = TRUE, caption = "Zentrale Themen der qualitativen Analyse", longtable = TRUE, linesep = "\\addlinespace") %>%
+    kable_styling(latex_options = c("hold_position")) %>%
+    column_spec(1, width = "4cm") %>%
+    column_spec(2, width = "5cm") %>%
+    column_spec(3, width = "5cm")
+}else if (knitr::is_html_output()) {
+  kable(df, format = "html", caption = "Zentrale Themen der qualitativen Analyse", escape = FALSE) %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE) %>%
+    column_spec(1, width = "20%") %>%
+    column_spec(2, width = "35%") %>%
+    column_spec(3, width = "45%")
+}
 ```
 
 # Diskussion
