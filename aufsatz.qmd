@@ -145,7 +145,7 @@ if (knitr::is_latex_output()) {
 ::: {#refs}
 :::
 
-# Angänge
+# Anhänge
 
 ## Anhang 1 - Rekrutierungstext {#anhang-rekrutierung .unnumbered}
 
