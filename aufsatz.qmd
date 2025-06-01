@@ -86,7 +86,7 @@ Zur Erfassung des Workloads verwendeten wir das DLR Workload Assessment Tool nac
 Wir werden die gesammelten Daten unter Anwendung verschiedener Tests analysieren. Zum einen klären wir, ob sich der Workload bei Unterstützung durch KI signifikant von dem ohne KI-Einsatz unterscheidet. Diese Fragestellung überprüft das Ergebnis der qualitativen Analyse, wonach der Einsatz von KI die Erkennung von Misinformationen für Benutzer erleichtert. Um dies zu testen, führen wir einen T-Test für abhängige Stichproben durch, wobei der KI-Einsatz als unabhängige Variable und der Workload als abhängige Variable dient. Des Weiteren untersuchen wir, ob sich die User Experience mit einer evaluativen KI signifikant von der mit einer empfehlenden KI unterscheidet. Für jede Subskala des User Experience Questionaire werden wir einen separaten T-Test für unabhängige Stichproben durchführen. Die Subskalen stellen demnach jeweils die abhängige und der KI-Systemtyp die unabhängige Variable dar. In unserem letzten Test analysieren wir den statistischen Zusammenhang zwischen der Anzahl gesendeter Nachrichten und dem Vertrauen in das System. Diese Frage basiert auf dem Ergebnis der qualitativen Analyse, dass Nutzer der KI mehr Vertrauen schenken, wenn sie den Analyseweg nachvollziehen können. Basierend auf den Mittelwerten der gesendeten Nachrichten pro Teilnehmer berechnen wir für jede Dimension der HCT2-Skala eine Pearson-Korrelation.
 
 
-![Ablaufdiagram der Studie](src/survey_diagram.png){#fig-ablauf}
+![Ablaufdiagramm der Studie](src/survey_diagram.png){#fig-ablauf}
 
 # Ergebnisse
 
