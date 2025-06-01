@@ -73,6 +73,32 @@ Zur Datenerhebung führten wir jeweils ein leitfadengestütztes Interview mit in
 
 Für die Analyse verwendeten wir die Thematische Analyse nach Braun und Clarke [-@braun_using_2006]. Ziel war es, aus dem Material übergeordnete Themen zu extrahieren, die zentrale Anforderungen der Nutzenden widerspiegeln. Die Analyse wurde manuell in Microsoft Word durchgeführt und erfolgte induktiv. Zunächst analysierten wir die Transkripte unabhängig voneinander. Anschließend wurden die identifizierten Codes und Themen im Abgleich zusammengeführt. Bei abweichenden Codierungen wurden die Unterschiede besprochen und schließlich zu einer validen und konsistenten Kategorisierung zusammengefügt. Durch dieses Vorgehen wurde die Subjektivität einzelner Interpretationen reduziert und eine möglichst transparente Auswertung gewährleistet.
 
+## Quantitative Methode
+
+Im quantitativen Teil unserer Studie führten wir eine Online-Umfrage durch. Diese bestand aus einem Between-Subjects Design, welches den Unterschied zwischen einer evaluativen KI und einer empfehlenden KI untersucht. Sowie aus einem Within-Subject Design, um den Unterschied zwischen der Bewertung von Social Media Posts mit und ohne Unterstützung einer KI zu untersuchen. Es handelt sich bei unserer quantitativen Methode demnach um ein Mixed Design.
+
+Die Rekrutierung erfolgte über einen schriftlichen Aufruf, der einen Link zur Umfrage enthielt (siehe [Anhang 1](#anhang-rekrutierung)). Den Text verbreiteten wir im Bekanntenkreis, sowie im „Studien und Umfragen“-Forum des Allgemeinen Studierendenausschusses der Universität zu Lübeck. Die Teilnehmenden mussten mindestens 18 Jahre alt sein, um den Datenschutz gemäß der Datenschutz-Grundverordnung gewährleisten zu können. Zudem setzten wir gute Deutschkenntnisse voraus, da unsere Umfrage ausschließlich auf Deutsch verfügbar war und mangelndes Sprachverständnis die Ergebnisse beeinträchtigen könnte. Auf Grund des Interfaces musste die Umfrage an einem PC oder Laptop durchgeführt werden.
+
+Wir setzten uns das Ziel, mindestens 20 ausgefüllte Umfragen zu erhalten, die im Zeitraum vom 25.05.2025 bis zum 02.06.2025 abgeschlossen werden mussten. Ziel der Rekrutierung war eine möglichst heterogene Stichprobe, insbesondere hinsichtlich Alter und Technikaffinität zu erhalten. Studenten der Universität zu Lübeck konnten als Vergütung eine Versuchspersonenstunde erhalten.
+
+Nachdem die Teilnehmenden den Link aus dem Rekrutierungstext aufriefen, wurden sie zunächst durch einen Text über die Studie und den Datenschutz aufgeklärt. Sofern sie diesen zustimmten, startete die mehrteilige Umfrage. Im Pre-Test-Fragebogen wurde die Demografik der Teilnehmer und ihre Technikaffinität abgefragt, sowie ein Tutorial für die anschließenden Aufgaben gezeigt. Die Teilnehmer mussten neben der Bewertung von Social Media Posts einen sekundären Task bearbeiten. Hierbei wurde in der rechten oberen Ecke ein Licht angezeigt, welches zwischen blau und rot wechselte. Sobald das Licht rot schien, musste ein Button in der linken oberen Ecke gedrückt werden. Dieser Task diente zur Messung der mentalen Belastung.
+
+Nach dem Tutorial wurde das Baseline Experiment durchgeführt. Hierfür mussten alle Teilnehmenden 10 Posts ohne die Unterstützung von KI bewerten. Sie gaben an, ob sie den Post als Misinformation einschätzten und wie sicher sie sich mit dieser Entscheidung waren. Anschließend folgte ein Post-Baseline-Fragebogen, der das subjektive Workload erfasste. Im nächsten Schritt wurden die Befragten randomisiert einem evaluativen oder empfehlenden Systemtyp zugeordnet. Es mussten erneut 10 Posts bewertet werden, diesmal jedoch mit der Unterstützung des jeweiligen KI-Typen. Bei jedem Post mussten die Teilnehmenden mindestens eine Frage an die KI stellen. Sie konnten jedoch auch mehrere Fragen stellen und mussten währenddessen weiterhin den sekundären Task ausführen. Nach der Bewertung der 10 Posts musste ein weiterer Fragebogen beantwortet werden, dieser beinhaltete Fragen zum Workload, zur User Experience und zum Vertrauen in das System. Die Studie endete mit einem kurzen Debriefing. Der gesamte Ablauf der Studie ist in Diagramm @fig-ablauf veranschaulicht.
+
+Zur Erfassung des Workloads verwendeten wir das DLR Workload Assessment Tool nach [@ev_dlr-wat_2018]. Die Skala besteht aus acht Item, mit denen die subjektive Einschätzung der momentanen Beanspruchung abgefragt werden.
+Die Teilnehmer müssen die einzelnen Items auf einer numerischen Skala von 0 bis 200 bewerten, welche von sehr stark unterbeansprucht (0) über optimal (100) bis sehr stark überbeansprucht (200) geht. Die Subskalen werden zu einem Gesamtwert des Workloads aufsummiert. Die User Experience fragten wir mit Hilfe des User Experience Questionaire nach [@laugwitz_construction_2008] ab. Der Fragebogen besteht aus 26 Items, welche sechs Dimensionen der User Experience behandeln: Attraktivität, Durchschaubarkeit, Originalität, Stimulation, Steuerbarkeit, Effizienz.
+
+Die einzelnen Items bestehen jeweils aus einem Paar von Eigenschaften, welche sich auf einer 7-Punkte-Skala gegenüberstehen. Ein Beispiel für ein solches Item ist langweilig (1) bis spannend (7). Für jede der sechs Dimensionen wird der Mittelwert der zugehörigen Items berechnet. Um das Vertrauen in das System zu untersuchen, verwendeten wir eine ins Deutsche übersetzte Version der Human-Computer Trust 2 (HCT2) Skala nach [@madsen_measuring_2000]. In dieser Studie nutzten wir folgende drei Dimensionen: Perceived Reliability zu Deutsch Wahrgenommene Zuverlässigkeit, Perceived Technical Competence zu Deutsch Wahrgenommene technische Kompetenz und Perceived Understandability zu Deutsch Wahrgenommene Verständlichkeit. Jede Dimension wurde durch fünf Items operationalisiert. Die Teilnehmenden müssen jede Aussage auf einer sechs-stufigen Likert-Skala von stimmt gar nicht (1) bis stimmt völlig (6) bewerten. Anschließen wird ebenfalls für jede Dimension der Mittelwert der zugehörigen Items berechnet.
+
+Wir werden die gesammelten Daten unter Anwendung verschiedener Tests analysieren.
+Zum einen möchten wir klären, ob sich der Workload bei Unterstützung durch KI signifikant von dem ohne KI-Einsatz unterscheidet. Diese Fragestellung überprüft das Ergebnis der qualitativen Analyse, wonach der Einsatz von KI die Erkennung von Misinformationen für Benutzer erleichtert. Um dies zu testen, führen wir einen T-Test für abhängige Stichproben durch, wobei der KI-Einsatz als unabhängige Variable und der Workload als abhängige Variable dient.
+
+Des Weiteren werden wir untersuchen, ob sich die User Experience mit einer evaluativen KI signifikant von der mit einer empfehlenden KI unterscheidet. Für jede Subskala des User Experience Questionaire werden wir einen separaten T-Test für unabhängige Stichproben durchführen. Die Subskalen stellen demnach jeweils die abhängige und der KI-Systemtyp die unabhängige Variable dar. In unserem letzten Test wollen wir die Frage untersuchen, in welchem Zusammenhang die Anzahl geschickter Nachrichten mit dem Vertrauen in das System steht.
+Diese Frage basiert auf dem Ergebnis der qualitativen Analyse, dass Nutzer der KI mehr Vertrauen schenken, wenn sie den Analyseweg nachvollziehen können. Für diesen Test verwenden wir je Dimension der HCT2-Skala die Pearson-Korrelation, da wir aus den gesendeten Nachrichten der Teilnehmer jeweils einen Mittelwert bilden.
+
+
+![Ablaufdiagram der Studie](src/mermaid_survey_flowchart.png){#fig-ablauf}
+
 # Ergebnisse
 
 ## Qualitative Ergebnisse
@@ -130,7 +156,9 @@ if (knitr::is_latex_output()) {
 ::: {#refs}
 :::
 
-# Anhang 1 - Rekrutierungstext {.unnumbered}
+# Angänge
+
+## Anhang 1 - Rekrutierungstext {#anhang-rekrutierung .unnumbered}
 
 **Online-Studie zur Erkennung von Misinformation auf Social Media**
 
