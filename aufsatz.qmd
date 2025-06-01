@@ -97,7 +97,7 @@ Des Weiteren werden wir untersuchen, ob sich die User Experience mit einer evalu
 Diese Frage basiert auf dem Ergebnis der qualitativen Analyse, dass Nutzer der KI mehr Vertrauen schenken, wenn sie den Analyseweg nachvollziehen können. Für diesen Test verwenden wir je Dimension der HCT2-Skala die Pearson-Korrelation, da wir aus den gesendeten Nachrichten der Teilnehmer jeweils einen Mittelwert bilden.
 
 
-![Ablaufdiagram der Studie](src/mermaid_survey_flowchart.png){#fig-ablauf}
+![Ablaufdiagram der Studie](src/survey_diagram.png){#fig-ablauf}
 
 # Ergebnisse
 
