@@ -1,0 +1,1 @@
+Ablageort für nicht mit GitHub zu synchronisierenden Daten
