@@ -57,3 +57,6 @@ aufsatz_files/*
 
 # Word Transkripte
 /Transkripte/*.docx
+
+# Quantitative Erhebung Daten
+Daten/*
