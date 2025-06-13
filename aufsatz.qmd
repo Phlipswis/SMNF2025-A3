@@ -186,8 +186,28 @@ a <- data_filtered %>%
 select(starts_with("ueq_")) %>%
 psych::alpha(check.keys = TRUE)
 
+alpha_ueq <- round(a$total$raw_alpha, 2)
 
-prop.table(table(data_filtered$b_dlr_wat_w)) * 100
+b <- data_filtered %>%
+select(starts_with("hct_r")) %>%
+psych::alpha(check.keys = TRUE)
+
+alpha_hct_r <- round(b$total$raw_alpha, 2)
+
+
+prop_b <- prop.table(table(data_filtered$b_dlr_wat_w)) * 100
+
+prop_ki <- prop.table(table(data_filtered$b_dlr_wat_w)) * 100
+
+prop_ueq <- prop.table(table(data_filtered$ueq_sum)) * 100
+
+prop_hct <- prop.table(table(data_filtered$hct_r_sum)) * 100
+
+
+
+
+
+
 
 
 
@@ -208,10 +228,10 @@ df <- data.frame(
                  sum(!is.na(data_filtered$ueq_sum)),
                  sum(!is.na(data_filtered$hct_r_sum))),
   CA = c("Cronbachs Alpha",
-                 ".",
-                 ".",
-                 ".",
-                 "."),
+                 " ",
+                 " ",
+                 alpha_ueq,
+                 alpha_hct_r),
   mittelwert = c("Mittelwert",
                  mean(data_filtered$b_dlr_wat_w),
                  mean(data_filtered$ki_dlr_wat_w),
@@ -238,10 +258,10 @@ df <- data.frame(
                  sd(data_filtered$ueq_sum),
                  sd(data_filtered$hct_r_sum)),
   Prozent = c("Anzahl oder Prozentzahlen für die verschiedenen Kategorien",
-                 ".",
-                 ".",
-                 ".",
-                 ".")
+                 paste(round(prop_b, 1), collapse = "; "),
+                 paste(round(prop_ki, 1), collapse = "; "),
+                 paste(round(prop_ueq, 1), collapse = "; "),
+                 paste(round(prop_hct, 1), collapse = "; "))
   
 )
 
