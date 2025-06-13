@@ -85,7 +85,6 @@ Zur Erfassung des Workloads verwendeten wir das DLR Workload Assessment Tool nac
 
 Wir werden die gesammelten Daten unter Anwendung verschiedener Tests analysieren. Zum einen klären wir, ob sich der Workload bei Unterstützung durch KI signifikant von dem ohne KI-Einsatz unterscheidet. Diese Fragestellung überprüft das Ergebnis der qualitativen Analyse, wonach der Einsatz von KI die Erkennung von Misinformationen für Benutzer erleichtert. Um dies zu testen, führen wir einen T-Test für abhängige Stichproben durch, wobei der KI-Einsatz als unabhängige Variable und der Workload als abhängige Variable dient. Des Weiteren untersuchen wir, ob sich die User Experience mit einer evaluativen KI signifikant von der mit einer empfehlenden KI unterscheidet. Für jede Subskala des User Experience Questionaire werden wir einen separaten T-Test für unabhängige Stichproben durchführen. Die Subskalen stellen demnach jeweils die abhängige und der KI-Systemtyp die unabhängige Variable dar. In unserem letzten Test analysieren wir den statistischen Zusammenhang zwischen der Anzahl gesendeter Nachrichten und dem Vertrauen in das System. Diese Frage basiert auf dem Ergebnis der qualitativen Analyse, dass Nutzer der KI mehr Vertrauen schenken, wenn sie den Analyseweg nachvollziehen können. Basierend auf den Mittelwerten der gesendeten Nachrichten pro Teilnehmer berechnen wir für jede Dimension der HCT2-Skala eine Pearson-Korrelation.
 
-
 ![Ablaufdiagramm der Studie](src/survey_diagram.png){#fig-ablauf}
 
 # Ergebnisse
@@ -167,3 +166,110 @@ https://dsslab.hciuse.sh/study/pilot?groupId=gr-a3
 *(Bitte im Browser auf einem PC oder Tablet öffnen.)*
 
 **Vergütung:** Studierende der Medieninformatik oder Psychologie an der Universität zu Lübeck können 1 VP-Stunde erhalten. Wichtig: Teilnehmende an der Veranstaltung SMNF dürfen die Studie nicht bearbeiten.
+
+```{r tbl-ksehfbk, results='asis'}
+#| echo: false
+library(dplyr)
+library(kableExtra)
+library(psych)
+
+data_combined <- read.csv("Daten/data_combined.csv")
+
+data_filtered <- data_combined %>%
+  filter(age >= 18)
+
+dlr_mean <- mean(data_filtered$b_dlr_wat_w)
+
+data_filtered$ueq_sum <- rowSums(data_filtered[, paste0("ueq_", 1:26)], na.rm = TRUE)
+data_filtered$hct_r_sum <- rowSums(data_filtered[, paste0("hct_r0", 1:5)], na.rm = TRUE)
+a <- data_filtered %>%
+select(starts_with("ueq_")) %>%
+psych::alpha(check.keys = TRUE)
+
+
+prop.table(table(data_filtered$b_dlr_wat_w)) * 100
+
+
+
+#hct_r01 bis hct_r05
+
+#ueq_1 bis ueq_26
+
+
+df <- data.frame(
+  Variable = c("Variable", 
+            "Workload mit KI",
+            "Workload ohne KI",
+            "User Experience (UEQ)",
+            "Human- Computer Trust"),
+  AdR = c("Anzahl der Records (n)",
+                 sum(!is.na(data_filtered$b_dlr_wat_w)),
+                 sum(!is.na(data_filtered$ki_dlr_wat_w)),
+                 sum(!is.na(data_filtered$ueq_sum)),
+                 sum(!is.na(data_filtered$hct_r_sum))),
+  CA = c("Cronbachs Alpha",
+                 ".",
+                 ".",
+                 ".",
+                 "."),
+  mittelwert = c("Mittelwert",
+                 mean(data_filtered$b_dlr_wat_w),
+                 mean(data_filtered$ki_dlr_wat_w),
+                 mean(data_filtered$ueq_sum),
+                 mean(data_filtered$hct_r_sum)),
+  median = c("Median",
+                 median(data_filtered$b_dlr_wat_w),
+                 median(data_filtered$ki_dlr_wat_w),
+                 median(data_filtered$ueq_sum),
+                 median(data_filtered$hct_r_sum)),
+  min = c("Min",
+                 min(data_filtered$b_dlr_wat_w),
+                 min(data_filtered$ki_dlr_wat_w),
+                 min(data_filtered$ueq_sum),
+                 min(data_filtered$hct_r_sum)),
+  max = c("Max",
+                 max(data_filtered$b_dlr_wat_w),
+                 max(data_filtered$ki_dlr_wat_w),
+                 max(data_filtered$ueq_sum),
+                 max(data_filtered$hct_r_sum)),
+  sd = c("Standartabweichung",
+                 sd(data_filtered$b_dlr_wat_w),
+                 sd(data_filtered$ki_dlr_wat_w),
+                 sd(data_filtered$ueq_sum),
+                 sd(data_filtered$hct_r_sum)),
+  Prozent = c("Anzahl oder Prozentzahlen für die verschiedenen Kategorien",
+                 ".",
+                 ".",
+                 ".",
+                 ".")
+  
+)
+
+if (knitr::is_latex_output()) {
+  kable(df, format = "latex", booktabs = TRUE, caption = "Zentrale Themen der qualitativen Analyse", longtable = TRUE, linesep = "\\addlinespace") %>%
+    kable_styling(latex_options = c("hold_position")) %>%
+    column_spec(1, width = "4cm") %>%
+    column_spec(2, width = "5cm") %>%
+    column_spec(3, width = "5cm")
+}else if (knitr::is_html_output()) {
+  kable(df, format = "html", caption = "Zentrale Themen der qualitativen Analyse", escape = FALSE) %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE) %>%
+    column_spec(1, width = "20%") %>%
+    column_spec(2, width = "35%") %>%
+    column_spec(3, width = "45%")
+}
+
+
+
+
+
+
+
+
+
+```
+
+```{r check-names}
+#| echo: true
+colnames(data_combined)
+```
