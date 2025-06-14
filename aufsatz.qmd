@@ -167,8 +167,8 @@ https://dsslab.hciuse.sh/study/pilot?groupId=gr-a3
 
 **Vergütung:** Studierende der Medieninformatik oder Psychologie an der Universität zu Lübeck können 1 VP-Stunde erhalten. Wichtig: Teilnehmende an der Veranstaltung SMNF dürfen die Studie nicht bearbeiten.
 
-```{r tbl-ksehfbk, results='asis'}
-#| echo: false
+```{r tbl-ksehfbk, results='asis' echo: false}
+
 library(dplyr)
 library(kableExtra)
 library(psych)
@@ -284,6 +284,19 @@ if (knitr::is_latex_output()) {
 
 
 
+data_filtered <- data_filtered %>%
+  mutate(age_group = ifelse(age <= 30, "jünger", "älter"))
+
+describeBy(data_filtered$ueq_sum, group = data_filtered$age_group)
+
+t.test(data_filtered$ueq_sum ~ data_filtered$age_group, alternative = "less")
+
+library(ggplot2)
+ggplot(data_filtered, aes(x = age_group, y = ueq_sum)) +
+  geom_point()
+  theme_minimal() +
+  labs(x = "Altersgruppe", y = "UEQ-Summe", title = "Mittelwertvergleich: UEQ nach Alter")
+
 
 
 
@@ -292,4 +305,13 @@ if (knitr::is_latex_output()) {
 ```{r check-names}
 #| echo: true
 colnames(data_combined)
+```
+
+```{r,  echo=FALSE}
+
+library(psych)
+
+
+
+
 ```
