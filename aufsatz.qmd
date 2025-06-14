@@ -287,16 +287,18 @@ if (knitr::is_latex_output()) {
 data_filtered <- data_filtered %>%
   mutate(age_group = ifelse(age <= 30, "jünger", "älter"))
 
-describeBy(data_filtered$ueq_sum, group = data_filtered$age_group)
+
+
 
 t.test(data_filtered$ueq_sum ~ data_filtered$age_group, alternative = "less")
 
-library(ggplot2)
-ggplot(data_filtered, aes(x = age_group, y = ueq_sum)) +
-  geom_point()
-  theme_minimal() +
-  labs(x = "Altersgruppe", y = "UEQ-Summe", title = "Mittelwertvergleich: UEQ nach Alter")
 
+  
+
+  
+t.test(data_filtered$b_dlr_wat_w ~ data_filtered$age_group, alternative = "less")
+
+t.test(data_filtered$ki_dlr_wat_w ~ data_filtered$age_group, alternative = "less")
 
 
 
