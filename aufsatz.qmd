@@ -167,11 +167,13 @@ https://dsslab.hciuse.sh/study/pilot?groupId=gr-a3
 
 **Vergütung:** Studierende der Medieninformatik oder Psychologie an der Universität zu Lübeck können 1 VP-Stunde erhalten. Wichtig: Teilnehmende an der Veranstaltung SMNF dürfen die Studie nicht bearbeiten.
 
-```{r tbl-ksehfbk, results='asis' echo: false}
+```{r, tbl-ksehfbk, results='asis',  echo=FALSE, message=FALSE, warning=FALSE }
+
 
 library(dplyr)
 library(kableExtra)
 library(psych)
+library(ggplot2)
 
 data_combined <- read.csv("Daten/data_combined.csv")
 
@@ -280,12 +282,37 @@ if (knitr::is_latex_output()) {
 }
 
 
-
-
+t.test(data_filtered$b_dlr_wat_w, data_filtered$ki_dlr_wat_w, paired = TRUE, alternative = "two.sided" )
 
 
 
 data_web <- read.csv("Daten/web_app_data.csv")
+
+
+
+
+
+
+nachrichten_anzahl <- data_web %>%
+  group_by(participantId) %>%
+  summarise(messages_sent = n())
+
+data_filtered <- data_filtered %>%
+  left_join(nachrichten_anzahl, by = "participantId")
+
+
+cor.test(data_filtered$messages_sent, data_filtered$hct_r_sum)
+
+ggplot(data_filtered, aes(x = messages_sent, y = hct_r_sum)) +
+  geom_point() +
+  
+  theme_minimal() +
+  labs(title = "Zusammenhang zwischen Nachrichtenanzahl und Ki Vertrauen",
+       x = "Anzahl",
+       y = "Vertrauen")
+
+
+
 
 data_complete <- merge(data_filtered, data_web, by = "participantId", all.x = TRUE)
 
@@ -297,6 +324,13 @@ data_KIsystem <- data_complete %>%
 t.test(data_KIsystem$ueq_sum ~ data_KIsystem$system, alternative = "less")
 
 
+ggplot(data_KIsystem, aes(x = system , y = ueq_sum)) +
+stat_summary(fun = mean, geom = "point", size = 3, color = "blue") +
+  stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width = 0.2) +
+  
+  theme_minimal() +
+  labs(x = "KI-System", y = "UEQ-Summe", title = "Mittelwertvergleich: UEQ nach KI-System")
+
 ```
 
 ```{r check-names}
@@ -304,11 +338,5 @@ t.test(data_KIsystem$ueq_sum ~ data_KIsystem$system, alternative = "less")
 colnames(data_combined)
 ```
 
-```{r,  echo=FALSE}
-
-library(psych)
-
-
-
-
+```{}
 ```
