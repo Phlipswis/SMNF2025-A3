@@ -284,22 +284,17 @@ if (knitr::is_latex_output()) {
 
 
 
-data_filtered <- data_filtered %>%
-  mutate(age_group = ifelse(age <= 30, "jünger", "älter"))
+
+data_web <- read.csv("Daten/web_app_data.csv")
+
+data_complete <- merge(data_filtered, data_web, by = "participantId", all.x = TRUE)
 
 
+data_KIsystem <- data_complete %>%
+  filter(data_complete$system == "R" | data_complete$system == "E")
 
 
-t.test(data_filtered$ueq_sum ~ data_filtered$age_group, alternative = "less")
-
-
-  
-
-  
-t.test(data_filtered$b_dlr_wat_w ~ data_filtered$age_group, alternative = "less")
-
-t.test(data_filtered$ki_dlr_wat_w ~ data_filtered$age_group, alternative = "less")
-
+t.test(data_KIsystem$ueq_sum ~ data_KIsystem$system, alternative = "less")
 
 
 ```
