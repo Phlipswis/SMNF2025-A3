@@ -135,6 +135,54 @@ if (knitr::is_latex_output()) {
 }
 ```
 
+## Quantitative Ergebnisse
+
+### Stichprobe
+
+```{r}
+#| echo: false
+suppressPackageStartupMessages({
+  library(dplyr)
+})
+
+data_combined <- read.csv("Daten/data_combined.csv")
+
+# Anzahl
+anzahl_teilnehmende <- length(data_combined$participantId)
+
+# Alter (Mittelwert, Standardabweichung, Median, Minimum, Maximum)
+alter_mittelwert <- mean(data_combined$age, na.rm = TRUE)
+alter_sd <- sd(data_combined$age, na.rm = TRUE)
+alter_median <- median(data_combined$age, na.rm = TRUE)
+alter_min <- min(data_combined$age, na.rm = TRUE)
+alter_max <- max(data_combined$age, na.rm = TRUE)
+
+# Geschlecht (Prozentsätze)
+geschlecht_verteilung <- table(data_combined$gender)
+geschlecht_prozent <- prop.table(geschlecht_verteilung) * 100
+prozent_maennlich <- ifelse("1" %in% names(geschlecht_prozent), geschlecht_prozent[["1"]], 0)
+prozent_weiblich <- ifelse("2" %in% names(geschlecht_prozent), geschlecht_prozent[["2"]], 0)
+prozent_andere <- sum(geschlecht_prozent[!(names(geschlecht_prozent) %in% c("1", "2"))])
+
+# Anzahl mit empfehlender/evaluativer KI
+anzahl_empfehlend <- sum(!is.na(data_combined$decision_rate_R))
+anzahl_evaluativ <- sum(!is.na(data_combined$decision_rate_E))
+
+# Vorwissen KI (Mittelwert, Standardabweichung)
+vorwissen_mittelwert <- mean(data_combined$aiknowledge, na.rm = TRUE)
+vorwissen_sd <- sd(data_combined$aiknowledge, na.rm = TRUE)
+```
+
+Unsere Stichprobe bestand aus insgesamt $N = `r anzahl_teilnehmende`$ vollständig ausgefüllten Umfragen, die in die statistische Analyse einbezogen wurden. Das Alter der Teilnehmenden lag im Mittel bei `r round(alter_mittelwert, 1)` Jahren ($SD = `r round(alter_sd, 1)`$, $Md = `r alter_median`$), mit einer Altersspanne von `r alter_min` bis `r alter_max` Jahren. `r round(prozent_weiblich, 1)` % der Befragten gaben an, sich als weiblich zu identifizierten, während sich `r round(prozent_maennlich, 1)` % als männlich identifizierten und ein Anteil von `r round(prozent_andere, 1)` % eine andere Geschlechtskategorie angab.
+
+Zusätzlich wurde das Vorwissen der Teilnehmenden zu Künstlicher Intelligenz erfasst, wobei die Selbsteinschätzung auf einer Skala von 1 (sehr wenig) bis 5 (sehr viel) erfolgte. Der Mittelwert lag bei $M = `r round(vorwissen_mittelwert, 2)`$ ($SD = `r round(vorwissen_sd, 2)`$), was auf ein neutrales Kenntnisniveau innerhalb der Stichprobe hinweist.
+
+Im Rahmen des Between-Subjects-Designs betrachteten wir zwei unabhängige Gruppen. Die Gruppe, der eine empfehlende KI präsentiert wurde, umfasste $n_1 = `r anzahl_empfehlend`$ Teilnehmende, während  $n_2 = `r anzahl_evaluativ`$ Teilnehmende mit einer evaluativen KI interagierten. Diese Einteilung ermöglichte den Vergleich der unterschiedlichen KI-Typen. Für den Vergleich zwischen den Bedingungen mit und ohne KI wurde hingegen die gesamte Stichprobe als eine Gruppe betrachtet, da es sich hierbei um ein Within-Subjects-Design handelt.
+
+
+
+
+
 # Diskussion
 
 *Diskussion*
@@ -338,5 +386,5 @@ stat_summary(fun = mean, geom = "point", size = 3, color = "blue") +
 colnames(data_combined)
 ```
 
-```{}
+```         
 ```
