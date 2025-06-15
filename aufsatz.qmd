@@ -150,6 +150,10 @@ data_combined <- read.csv("Daten/data_combined.csv")
 # Anzahl
 anzahl_teilnehmende <- length(data_combined$participantId)
 
+# Anzahl mit empfehlender/evaluativer KI
+anzahl_empfehlend <- sum(!is.na(data_combined$decision_rate_R))
+anzahl_evaluativ <- sum(!is.na(data_combined$decision_rate_E))
+
 # Alter (Mittelwert, Standardabweichung, Median, Minimum, Maximum)
 alter_mittelwert <- mean(data_combined$age, na.rm = TRUE)
 alter_sd <- sd(data_combined$age, na.rm = TRUE)
@@ -164,10 +168,6 @@ prozent_maennlich <- ifelse("1" %in% names(geschlecht_prozent), geschlecht_proze
 prozent_weiblich <- ifelse("2" %in% names(geschlecht_prozent), geschlecht_prozent[["2"]], 0)
 prozent_andere <- sum(geschlecht_prozent[!(names(geschlecht_prozent) %in% c("1", "2"))])
 
-# Anzahl mit empfehlender/evaluativer KI
-anzahl_empfehlend <- sum(!is.na(data_combined$decision_rate_R))
-anzahl_evaluativ <- sum(!is.na(data_combined$decision_rate_E))
-
 # Vorwissen KI (Mittelwert, Standardabweichung)
 vorwissen_mittelwert <- mean(data_combined$aiknowledge, na.rm = TRUE)
 vorwissen_sd <- sd(data_combined$aiknowledge, na.rm = TRUE)
@@ -177,11 +177,15 @@ Unsere Stichprobe bestand aus insgesamt $N = `r anzahl_teilnehmende`$ vollständ
 
 Zusätzlich wurde das Vorwissen der Teilnehmenden zu Künstlicher Intelligenz erfasst, wobei die Selbsteinschätzung auf einer Skala von 1 (sehr wenig) bis 5 (sehr viel) erfolgte. Der Mittelwert lag bei $M = `r round(vorwissen_mittelwert, 2)`$ ($SD = `r round(vorwissen_sd, 2)`$), was auf ein neutrales Kenntnisniveau innerhalb der Stichprobe hinweist.
 
-Im Rahmen des Between-Subjects-Designs betrachteten wir zwei unabhängige Gruppen. Die Gruppe, der eine empfehlende KI präsentiert wurde, umfasste $n_1 = `r anzahl_empfehlend`$ Teilnehmende, während  $n_2 = `r anzahl_evaluativ`$ Teilnehmende mit einer evaluativen KI interagierten. Diese Einteilung ermöglichte den Vergleich der unterschiedlichen KI-Typen. Für den Vergleich zwischen den Bedingungen mit und ohne KI wurde hingegen die gesamte Stichprobe als eine Gruppe betrachtet, da es sich hierbei um ein Within-Subjects-Design handelt.
+Im Rahmen des Between-Subjects-Designs betrachteten wir zwei unabhängige Gruppen. Die Gruppe, der eine empfehlende KI präsentiert wurde, umfasste $n_1 = `r anzahl_empfehlend`$ Teilnehmende, während $n_2 = `r anzahl_evaluativ`$ Teilnehmende mit einer evaluativen KI interagierten. Diese Einteilung ermöglichte den Vergleich der unterschiedlichen KI-Typen. Für den Vergleich zwischen den Bedingungen mit und ohne KI wurde hingegen die gesamte Stichprobe als eine Gruppe betrachtet, da es sich hierbei um ein Within-Subjects-Design handelt.
 
+### Deskriptive Statistik
 
+[150 Wörter // Tabelle]{style="color:red"}
 
+### Inferenzstatistik
 
+[250 Wörter // 3 Plot Diagramme]{style="color:red"}
 
 # Diskussion
 
