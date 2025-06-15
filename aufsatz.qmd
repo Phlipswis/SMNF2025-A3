@@ -227,15 +227,44 @@ library(kableExtra)
 library(psych)
 library(ggplot2)
 
-data_combined <- read.csv("Daten/data_combined.csv")
+data_combined <- read.csv("Daten/data_combined.csv") #Zieht Daten in data_combined
 
-data_filtered <- data_combined %>%
+data_filtered <- data_combined %>% #Daten nur von Menschen über 18
   filter(age >= 18)
 
-dlr_mean <- mean(data_filtered$b_dlr_wat_w)
+#Summen von ueq und hct_r
 
 data_filtered$ueq_sum <- rowSums(data_filtered[, paste0("ueq_", 1:26)], na.rm = TRUE)
+
 data_filtered$hct_r_sum <- rowSums(data_filtered[, paste0("hct_r0", 1:5)], na.rm = TRUE)
+
+data_filtered$b_dlr_wat_sum <- rowSums(data_filtered[, c(
+  "b_dlr_wat_i",
+  "b_dlr_wat_w",
+  "b_dlr_wat_e",
+  "b_dlr_wat_m",
+  "b_dlr_wat_z",
+  "b_dlr_wat_a",
+  "b_dlr_wat_f",
+  "b_dlr_wat_b"
+)], na.rm = TRUE)
+data_filtered$b_dlr_wat_mean <- data_filtered$b_dlr_wat_sum / 8
+
+data_filtered$ki_dlr_wat_sum <- rowSums(data_filtered[, c(
+  "ki_dlr_wat_i",
+  "ki_dlr_wat_w",
+  "ki_dlr_wat_e",
+  "ki_dlr_wat_m",
+  "ki_dlr_wat_z",
+  "ki_dlr_wat_a",
+  "ki_dlr_wat_f",
+  "ki_dlr_wat_b"
+)], na.rm = TRUE)
+data_filtered$ki_dlr_wat_mean <- data_filtered$ki_dlr_wat_sum / 8
+
+
+#Cronbachs Alpha Berechnung
+                                   
 a <- data_filtered %>%
 select(starts_with("ueq_")) %>%
 psych::alpha(check.keys = TRUE)
@@ -248,67 +277,65 @@ psych::alpha(check.keys = TRUE)
 
 alpha_hct_r <- round(b$total$raw_alpha, 2)
 
+c <- data_filtered %>%
+select(starts_with("b_dlr_wat_")) %>%
+psych::alpha(check.keys = TRUE)
 
-prop_b <- prop.table(table(data_filtered$b_dlr_wat_w)) * 100
+alpha_b_dlr_wat_ <- round(c$total$raw_alpha, 2)
 
-prop_ki <- prop.table(table(data_filtered$b_dlr_wat_w)) * 100
+d <- data_filtered %>%
+select(starts_with("ki_dlr_wat_")) %>%
+psych::alpha(check.keys = TRUE)
 
-prop_ueq <- prop.table(table(data_filtered$ueq_sum)) * 100
-
-prop_hct <- prop.table(table(data_filtered$hct_r_sum)) * 100
-
-
-
-
-
-
-
+alpha_ki_dlr_wat_ <- round(d$total$raw_alpha, 2)
 
 
 #hct_r01 bis hct_r05
 
 #ueq_1 bis ueq_26
 
+#Tabelle
+
 
 df <- data.frame(
   Variable = c( 
-            "Workload mit KI",
             "Workload ohne KI",
+            "Workload mit KI",
             "User Experience (UEQ)",
             "Human- Computer Trust"),
   "Anzahl_der_Records" = c(
-                 sum(!is.na(data_filtered$b_dlr_wat_w)),
-                 sum(!is.na(data_filtered$ki_dlr_wat_w)),
+                 sum(!is.na(data_filtered$b_dlr_wat_mean)),
+                 sum(!is.na(data_filtered$ki_dlr_wat_mean)),
                  sum(!is.na(data_filtered$ueq_sum)),
                  sum(!is.na(data_filtered$hct_r_sum))),
   "Cronbachs_Alpha" = c(
-                 " ",
-                 " ",
+                 alpha_b_dlr_wat_,
+                 alpha_ki_dlr_wat_,
                  alpha_ueq,
                  alpha_hct_r),
   Mittelwert = c(
-                 round(mean(data_filtered$b_dlr_wat_w)),
-                 round(mean(data_filtered$ki_dlr_wat_w)),
+                 round(mean(data_filtered$b_dlr_wat_mean)),
+                 round(mean(data_filtered$ki_dlr_wat_mean)),
                  round(mean(data_filtered$ueq_sum)),
                  round(mean(data_filtered$hct_r_sum))),
   Median = c(
-                 median(data_filtered$b_dlr_wat_w),
-                 median(data_filtered$ki_dlr_wat_w),
-                 median(data_filtered$ueq_sum),
-                 median(data_filtered$hct_r_sum)),
+                 round(median(data_filtered$b_dlr_wat_mean)),
+                 round(median(data_filtered$ki_dlr_wat_mean)),
+                 round(median(data_filtered$ueq_sum)),
+                 round(median(data_filtered$hct_r_sum))),
   Min = c(
-                 min(data_filtered$b_dlr_wat_w),
-                 min(data_filtered$ki_dlr_wat_w),
-                 min(data_filtered$ueq_sum),
-                 min(data_filtered$hct_r_sum)),
+                 round(min(data_filtered$b_dlr_wat_mean)),
+                 round(min(data_filtered$ki_dlr_wat_mean)),
+                 round(min(data_filtered$ueq_sum)),
+                 round(min(data_filtered$hct_r_sum))),
   Max = c(
-                 max(data_filtered$b_dlr_wat_w),
-                 max(data_filtered$ki_dlr_wat_w),
-                 max(data_filtered$ueq_sum),
-                 max(data_filtered$hct_r_sum)),
+                 round(max(data_filtered$b_dlr_wat_mean)),
+                 round(max(data_filtered$ki_dlr_wat_mean)),
+                 round(max(data_filtered$ueq_sum)),
+                 round(max(data_filtered$hct_r_sum))),
   Standartabweichung = c(
-                 round(sd(data_filtered$b_dlr_wat_w)),
-                 round(sd(data_filtered$ki_dlr_wat_w)),
+                 round(sd(data_filtered$b_dlr_wat_mean)),
+                 round(sd(data_filtered$ki_dlr_wat_mean)),
                  round(sd(data_filtered$ueq_sum)),
                  round(sd(data_filtered$hct_r_sum)))
   
