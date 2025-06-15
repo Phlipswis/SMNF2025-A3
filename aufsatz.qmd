@@ -336,6 +336,14 @@ if (knitr::is_latex_output()) {
 
 t.test(data_filtered$b_dlr_wat_w, data_filtered$ki_dlr_wat_w, paired = TRUE, alternative = "two.sided" )
 
+ggplot(data_filtered, aes(x = b_dlr_wat_w, y = ki_dlr_wat_w)) +
+  geom_point() +
+  
+  theme_minimal() +
+  labs(title = "Zusammenhang zwischen workload mit und ohne KI",
+       x = "Ohne KI",
+       y = "Mit KI")
+
 
 
 data_web <- read.csv("Daten/web_app_data.csv")
