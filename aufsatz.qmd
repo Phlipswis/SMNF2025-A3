@@ -271,66 +271,72 @@ prop_hct <- prop.table(table(data_filtered$hct_r_sum)) * 100
 
 
 df <- data.frame(
-  Variable = c("Variable", 
+  Variable = c( 
             "Workload mit KI",
             "Workload ohne KI",
             "User Experience (UEQ)",
             "Human- Computer Trust"),
-  AdR = c("Anzahl der Records (n)",
+  "Anzahl_der_Records" = c(
                  sum(!is.na(data_filtered$b_dlr_wat_w)),
                  sum(!is.na(data_filtered$ki_dlr_wat_w)),
                  sum(!is.na(data_filtered$ueq_sum)),
                  sum(!is.na(data_filtered$hct_r_sum))),
-  CA = c("Cronbachs Alpha",
+  "Cronbachs_Alpha" = c(
                  " ",
                  " ",
                  alpha_ueq,
                  alpha_hct_r),
-  mittelwert = c("Mittelwert",
-                 mean(data_filtered$b_dlr_wat_w),
-                 mean(data_filtered$ki_dlr_wat_w),
-                 mean(data_filtered$ueq_sum),
-                 mean(data_filtered$hct_r_sum)),
-  median = c("Median",
+  Mittelwert = c(
+                 round(mean(data_filtered$b_dlr_wat_w)),
+                 round(mean(data_filtered$ki_dlr_wat_w)),
+                 round(mean(data_filtered$ueq_sum)),
+                 round(mean(data_filtered$hct_r_sum))),
+  Median = c(
                  median(data_filtered$b_dlr_wat_w),
                  median(data_filtered$ki_dlr_wat_w),
                  median(data_filtered$ueq_sum),
                  median(data_filtered$hct_r_sum)),
-  min = c("Min",
+  Min = c(
                  min(data_filtered$b_dlr_wat_w),
                  min(data_filtered$ki_dlr_wat_w),
                  min(data_filtered$ueq_sum),
                  min(data_filtered$hct_r_sum)),
-  max = c("Max",
+  Max = c(
                  max(data_filtered$b_dlr_wat_w),
                  max(data_filtered$ki_dlr_wat_w),
                  max(data_filtered$ueq_sum),
                  max(data_filtered$hct_r_sum)),
-  sd = c("Standartabweichung",
-                 sd(data_filtered$b_dlr_wat_w),
-                 sd(data_filtered$ki_dlr_wat_w),
-                 sd(data_filtered$ueq_sum),
-                 sd(data_filtered$hct_r_sum)),
-  Prozent = c("Anzahl oder Prozentzahlen für die verschiedenen Kategorien",
-                 paste(round(prop_b, 1), collapse = "; "),
-                 paste(round(prop_ki, 1), collapse = "; "),
-                 paste(round(prop_ueq, 1), collapse = "; "),
-                 paste(round(prop_hct, 1), collapse = "; "))
+  Standartabweichung = c(
+                 round(sd(data_filtered$b_dlr_wat_w)),
+                 round(sd(data_filtered$ki_dlr_wat_w)),
+                 round(sd(data_filtered$ueq_sum)),
+                 round(sd(data_filtered$hct_r_sum)))
   
 )
 
 if (knitr::is_latex_output()) {
-  kable(df, format = "latex", booktabs = TRUE, caption = "Zentrale Themen der qualitativen Analyse", longtable = TRUE, linesep = "\\addlinespace") %>%
+  kable(df, format = "latex", booktabs = TRUE, caption = "Zentrale Themen der qualitativen Analyse", longtable = TRUE, linesep = "\\addlinespace", align = "c") %>%
     kable_styling(latex_options = c("hold_position")) %>%
-    column_spec(1, width = "4cm") %>%
-    column_spec(2, width = "5cm") %>%
-    column_spec(3, width = "5cm")
+    column_spec(1, width = "10cm", align = "c") %>%
+    column_spec(2, width = "1cm", align = "c") %>%
+    column_spec(3, width = "1cm", align = "c") %>%
+    column_spec(4, width = "1cm", align = "c") %>%
+    column_spec(5, width = "1cm", align = "c") %>%
+    column_spec(6, width = "1cm", align = "c") %>%
+    column_spec(7, width = "1cm", align = "c") %>%
+    column_spec(8, width = "10cm", align = "c")
 }else if (knitr::is_html_output()) {
-  kable(df, format = "html", caption = "Zentrale Themen der qualitativen Analyse", escape = FALSE) %>%
-    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE) %>%
-    column_spec(1, width = "20%") %>%
-    column_spec(2, width = "35%") %>%
-    column_spec(3, width = "45%")
+  kable(df, format = "html", caption = "Zentrale Themen der qualitativen Analyse", 
+        escape = FALSE, align = rep("c", ncol(df))) %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, position = "center") %>%
+    column_spec(1, width = "30%") %>%
+    column_spec(2, width = "10%") %>%
+    column_spec(3, width = "10%") %>%
+    column_spec(4, width = "10%") %>%
+    column_spec(5, width = "10%") %>%
+    column_spec(6, width = "10%") %>%
+    column_spec(7, width = "10%") %>%
+    column_spec(8, width = "10%")
 }
 
 
@@ -391,12 +397,4 @@ stat_summary(fun = mean, geom = "point", size = 3, color = "blue") +
   theme_minimal() +
   labs(x = "KI-System", y = "UEQ-Summe", title = "Mittelwertvergleich: UEQ nach KI-System")
 
-```
-
-```{r check-names}
-#| echo: true
-colnames(data_combined)
-```
-
-```         
 ```
