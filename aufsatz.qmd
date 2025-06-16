@@ -363,8 +363,6 @@ if (knitr::is_latex_output()) {
 
 ### Inferenzstatistik
 
-[250 Wörter // 3 Plot Diagramme]{style="color:red"}
-
 ```{r}
 #| echo: false
 
@@ -380,31 +378,15 @@ ttest_ueq_system <- t.test(data_KIsystem$ueq_mean ~ data_KIsystem$system, altern
 # Korrelation HCT mit Alter
 cor_hct_alter <- cor.test(data_complete$age, data_complete$hct_mean, method = "pearson")
 ```
-**T-Test abhängig**
-T: `r round(ttest_workload_with_without$statistic, 2)` Df: `r round(ttest_workload_with_without$parameter, 0)` p:`r ttest_workload_with_without$p.value`
-Der gepaarte t-Test vergleicht die Mittelwerte der Summe DLR WAT zwischen zwei Bedingungen — Baseline und KI — bei denselben Teilnehmern.
+In @fig-plot_workload_with_without_KI ist der Vergleich des Workloads zwischen Baseline und KI-Bedingung dargestellt. Ohne die Unterstützung von KI (*M* = `r round(mean(data_complete$b_dlr_wat_sum), 1)`, *SD* = `r round(sd(data_complete$b_dlr_wat_sum), 1)`) berichten die Teilnehmenden einen geringeren Workload als mit der Unterstützung von KI ((*M* = `r round(mean(data_complete$ki_dlr_wat_sum), 1)`, *SD* = `r round(sd(data_complete$ki_dlr_wat_sum), 1)`) (*t* = `r round(ttest_workload_with_without$statistic, 2)`, *p* < .001, *d*). Dies deutet darauf hin, dass der Einsatz von KI die Teilnehmenden mental mehr beansprucht, als ohne den Einsatz.
 
-T = -4.34 bedeutet, dass die Werte in der KI-Bedingung im Durchschnitt deutlich höher sind als in der Baseline (da die Differenz Baseline minus KI negativ ist).
+In @fig-plot_ueq_system ist der Vergleich der User Experience zwischen empfehlender und evaluativer KI dargestellt. Die Differenz der durchschnittlichen User Experience mit empfehlender KI (*M* = `r round(mean(data_UXinverted$ueq_r_mean, na.rm = TRUE), 1)`, *SD* = `r round(sd(data_UXinverted$ueq_r_mean, na.rm = TRUE), 1)`) und evaluativer KI (*M* = `r round(mean(data_UXinverted$ueq_e_mean, na.rm = TRUE), 1)`, *SD* = `r round(sd(data_UXinverted$ueq_e_mean, na.rm = TRUE), 1)`) war signifikant (*t*(`r round(ttest_ueq_system$parameter, 0)`) = `r round(ttest_ueq_system$statistic, 2)`, *p* = `r sub("^0", "", formatC(ttest_ueq_system$p.value, format = "f", digits = 3))`) Dies deutet darauf hin, dass der Einsatz von empfehlender KI eine verbesserte User Experience mit sich bringt.
 
-Df = 175 entspricht der Anzahl der Paare minus 1.
+In @fig-plot_hct_age ist der Zusammenhang zwischen Alter der Teilnehmenden und Vertrauen in das System dargestellt. Es besteht ein Zusammenhang zwischen den beiden Variablen (*r*(`r cor_hct_alter$parameter`) = `r sub("^0", "", formatC(cor_hct_alter$p.value, format = "f", digits = 2))`, *p* = `r sub("^0", "", formatC(cor_hct_alter$p.value, format = "f", digits = 3))`). Das bedeutet, dass ein höheres Alter mit einem niedrigeren Vertrauen einhergingen, und umgekehrt.
 
-p ≈ 2.37 × 10⁻⁵ ist sehr klein, was auf eine hochsignifikante Differenz hinweist.
-
-
-**T-Test unabhängig**
-T: `r round(ttest_ueq_system$statistic, 2)` Df: `r round(ttest_ueq_system$parameter, 0)` p:`r ttest_ueq_system$p.value`
-Da der p-Wert kleiner als das übliche Signifikanzniveau von 0.05 (oder sogar 0.01) ist, kannst du die Nullhypothese ablehnen.
-Das heißt: Das System "E" hat eine signifikant kleinere durchschnittliche UEQ-Summe als System "R" (bei der Annahme, dass deine Hypothese alternative = "less" ist).
-
-**Korrelation**
-Korrelationskoeffizient r: `r round(cor_hct_alter$estimate, 2)`  
-p-Wert: `r signif(cor_hct_alter$p.value, 3)`  
-Konfidenzintervall: (`r round(cor_hct_alter$conf.int[1], 2)`, `r round(cor_hct_alter$conf.int[2], 2)`)
-Es gibt einen statistisch signifikanten, schwachen negativen Zusammenhang zwischen Alter und HCT. Der Effekt ist klein, und das Konfidenzintervall zeigt, dass die Unsicherheit relativ groß ist — die Korrelation könnte also auch nahe null sein. Dennoch deutet das Ergebnis darauf hin, dass mit steigendem Alter der HCT tendenziell etwas niedriger sein könnte.
-
-```{r my-plot, mittelwertvergleich_workload_with_without_KI}
+```{r fig-plot_workload_with_without_KI, fig.cap="Vergleich der Mittelwerte des Workloads zwischen Baseline und KI-Bedingung (t-Test abhängiger Stichproben)."}
 #| echo: false
-# Daten ins Long-Format bringen
+# Daten in Long-Format
 data_long <- data_complete %>%
   select(b_dlr_wat_sum, ki_dlr_wat_sum) %>%
   pivot_longer(cols = everything(), names_to = "system", values_to = "value") %>%
@@ -414,26 +396,26 @@ data_long <- data_complete %>%
 ggplot(data_long, aes(x = system, y = value)) +
   stat_summary(fun = mean, geom = "point", size = 3, color = "blue") +
   stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width = 0.2) +
-  labs(x = "System", y = "Summe DLR WAT", title = "Mittelwertvergleich: Baseline vs. KI") +
+  labs(x = "System", y = "Workload (DLR)") +
   theme_minimal()
 ```
 
 
-```{r my-plot, mittelwertvergleich_ueq_system}
+```{r fig-plot_ueq_system, fig.cap="Vergleich der Mittelwerte der User Experience zwischen empfehlender und evaluativer KI (t-Test unabhängiger Stichproben)."}
 #| echo: false
 ggplot(data_KIsystem, aes(x = system , y = ueq_mean)) +
   stat_summary(fun = mean, geom = "point", size = 3, color = "blue") +
   stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width = 0.2) +
-  labs(x = "KI-System", y = "UEQ-Mittelwert", title = "Mittelwertvergleich: UEQ nach KI-System") +
+  labs(x = "KI-System", y = "User Experience (UEQ)") +
   theme_minimal()
 ```
 
-```{r my-plot, fig.cap="Scatterplots von Age vs. HCT-Variablen mit Regressionslinien", fig.height=4, fig.width=6, warning=FALSE, message=FALSE}
+```{r fig-plot_hct_age, fig.cap="Zusammenhang zwischen Alter und Vertrauen in das System (Pearson-Korrelation).", echo=FALSE, message=FALSE, warning=FALSE}
 #| echo: false
 ggplot(data_complete, aes(x = age, y = hct_mean)) +
   geom_point(alpha = 0.6) +
   geom_smooth(method = "lm", color = "blue", se = FALSE) +
-  labs(title = "Alter vs. hct_mean", x = "Alter", y = "hct_mean") +
+  labs(x = "Alter", y = "Vertrauen (HCT)") +
   theme_minimal()
 ```
 
