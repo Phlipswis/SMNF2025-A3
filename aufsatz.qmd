@@ -23,6 +23,26 @@ csl: apa.csl
 
 editor: visual
 ---
+```{r setup}
+#| echo: false
+suppressPackageStartupMessages({
+  library(kableExtra)
+  library(dplyr)
+  library(psych)
+  library(ggplot2)
+  library(tidyr)
+})
+
+data_combined <- read.csv("Daten/data_combined.csv")
+web_app_data <- read.csv("Daten/web_app_data.csv")
+
+web_app_filtered <- web_app_data %>%
+  filter(system %in% c("E", "R"))
+web_app_unique <- web_app_filtered %>%
+  group_by(participantId) %>%
+  summarise(system = first(system), .groups = "drop")
+data_complete <- merge(data_combined, web_app_unique, by = "participantId", all.x = TRUE)
+```
 
 **Github Repository und Commit-Hash**
 
@@ -81,9 +101,9 @@ Die Rekrutierung erfolgte über einen schriftlichen Aufruf, der einen Link zur U
 
 Nachdem die Teilnehmenden den Link aus dem Rekrutierungstext aufriefen, wurden sie zunächst durch einen Text über die Studie und den Datenschutz aufgeklärt. Sofern sie diesen zustimmten, startete die mehrteilige Umfrage. Im Pre-Test-Fragebogen wurde die Demografik der Teilnehmer und ihre Technikaffinität abgefragt, sowie ein Tutorial für die anschließenden Aufgaben gezeigt. Die Teilnehmer mussten neben der Bewertung von Social Media Posts einen sekundären Task bearbeiten. Hierbei wurde in der rechten oberen Ecke ein Licht angezeigt, welches zwischen blau und rot wechselte. Sobald das Licht rot schien, musste ein Button in der linken oberen Ecke gedrückt werden. Dieser Task diente zur Messung der mentalen Belastung.Nach dem Tutorial wurde das Baseline Experiment durchgeführt. Hierfür mussten alle Teilnehmenden 10 Posts ohne die Unterstützung von KI bewerten. Sie gaben an, ob sie den Post als Misinformation einschätzten und wie sicher sie sich mit dieser Entscheidung waren. Anschließend folgte ein Post-Baseline-Fragebogen, der das subjektive Workload erfasste. Im nächsten Schritt wurden die Befragten randomisiert einem evaluativen oder empfehlenden Systemtyp zugeordnet. Es mussten erneut 10 Posts bewertet werden, diesmal jedoch mit der Unterstützung des jeweiligen KI-Typen. Bei jedem Post mussten die Teilnehmenden mindestens eine Frage an die KI stellen. Sie konnten jedoch auch mehrere Fragen stellen und mussten währenddessen weiterhin den sekundären Task ausführen. Nach der Bewertung der 10 Posts musste ein weiterer Fragebogen beantwortet werden, dieser beinhaltete Fragen zum Workload, zur User Experience und zum Vertrauen in das System. Die Studie endete mit einem kurzen Debriefing, sowie einer Umfrage zum Erhalt der Versuchspersonenstunden. Der gesamte Ablauf der Studie ist in Diagramm @fig-ablauf veranschaulicht.
 
-Zur Erfassung des Workloads verwendeten wir das DLR Workload Assessment Tool nach [@ev_dlr-wat_2018]. Die Skala besteht aus acht Items, mit denen die subjektive Einschätzung der momentanen Beanspruchung abgefragt wurde. Die Teilnehmer mussten die einzelnen Items auf einer numerischen Skala von 0 bis 200 bewerten, welche von sehr stark unterbeansprucht (0) über optimal (100) bis sehr stark überbeansprucht (200) ging. Die Subskalen wurden zu einem Gesamtwert des Workloads aufsummiert. Die User Experience fragten wir mit Hilfe des User Experience Questionaire nach [@laugwitz_construction_2008] ab. Der Fragebogen besteht aus 26 Items, welche sechs Dimensionen der User Experience behandelten: Attraktivität, Durchschaubarkeit, Originalität, Stimulation, Steuerbarkeit, Effizienz. Die einzelnen Items bestanden, jeweils aus einem Paar von Eigenschaften, welche sich auf einer 7-Punkte-Skala gegenüberstanden. Ein Beispiel für ein solches Item ist langweilig (1) bis spannend (7). Für jede der sechs Dimensionen wurde der Mittelwert der zugehörigen Items berechnet. Um das Vertrauen in das System zu untersuchen, verwendeten wir eine ins Deutsche übersetzte Version der Human-Computer Trust 2 (HCT2) Skala nach [@madsen_measuring_2000]. In dieser Studie nutzten wir folgende drei Dimensionen: Perceived Reliability zu Deutsch Wahrgenommene Zuverlässigkeit, Perceived Technical Competence zu Deutsch Wahrgenommene technische Kompetenz und Perceived Understandability zu Deutsch Wahrgenommene Verständlichkeit. Jede Dimension operationalisierten wir durch fünf Items. Die Teilnehmenden mussten jede Aussage auf einer sechs-stufigen Likert-Skala von stimmt gar nicht (1) bis stimmt völlig (6) bewerten. Anschließen wurde ebenfalls für jede Dimension der Mittelwert der zugehörigen Items berechnet.
+Zur Erfassung des Workloads verwendeten wir das DLR Workload Assessment Tool nach [@ev_dlr-wat_2018]. Die Skala besteht aus acht Items, mit denen die subjektive Einschätzung der momentanen Beanspruchung abgefragt wurde. Die Teilnehmer mussten die einzelnen Items auf einer numerischen Skala von 0 bis 200 bewerten, welche von sehr stark unterbeansprucht (0) über optimal (100) bis sehr stark überbeansprucht (200) ging. Die Subskalen wurden zu einem Gesamtwert des Workloads aufsummiert. Die User Experience fragten wir mit Hilfe des User Experience Questionaire nach [@laugwitz_construction_2008] ab. Der Fragebogen besteht aus 26 Items, welche sechs Dimensionen der User Experience behandelten: Attraktivität, Durchschaubarkeit, Originalität, Stimulation, Steuerbarkeit, Effizienz. Die einzelnen Items bestanden, jeweils aus einem Paar von Eigenschaften, welche sich auf einer 7-Punkte-Skala gegenüberstanden. Ein Beispiel für ein solches Item ist langweilig (1) bis spannend (7). Für die sechs Dimensionen wurde ein gemeinsamer Mittelwert berechnet, wofür einige Items invertiert wurden. Um das Vertrauen in das System zu untersuchen, verwendeten wir eine ins Deutsche übersetzte Version der Human-Computer Trust 2 (HCT2) Skala nach [@madsen_measuring_2000]. In dieser Studie nutzten wir folgende drei Dimensionen: Perceived Reliability zu Deutsch Wahrgenommene Zuverlässigkeit, Perceived Technical Competence zu Deutsch Wahrgenommene technische Kompetenz und Perceived Understandability zu Deutsch Wahrgenommene Verständlichkeit. Jede Dimension operationalisierten wir durch fünf Items. Die Teilnehmenden mussten jede Aussage auf einer sechs-stufigen Likert-Skala von stimmt gar nicht (1) bis stimmt völlig (6) bewerten. Anschließen wurde für die Dimensionen ein gemeinsamer Mittelwert berechnet.
 
-Wir analysierten die gesammelten Daten unter Anwendung verschiedener Tests. Zum einen untersuchten wir, ob sich der Workload bei Unterstützung durch KI signifikant von dem ohne KI-Einsatz unterschied. Diese Fragestellung überprüfte das Ergebnis der qualitativen Analyse, wonach der Einsatz von KI die Erkennung von Misinformationen für Benutzer erleichtert. Um dies zu testen, führten wir einen T-Test für abhängige Stichproben durch, wobei der KI-Einsatz als unabhängige Variable und der Workload als abhängige Variable diente. Des Weiteren untersuchten wir, ob sich die User Experience mit einer evaluativen KI signifikant von der mit einer empfehlenden KI unterschied. Für jede Subskala des User Experience Questionaire führten wir einen separaten T-Test für unabhängige Stichproben durch. Die Subskalen stellten demnach jeweils die abhängige und der KI-Systemtyp die unabhängige Variable dar. In unserem letzten Test analysierten wir den statistischen Zusammenhang zwischen der Anzahl gesendeter Nachrichten und dem Vertrauen in das System. Diese Frage basierte auf dem Ergebnis der qualitativen Analyse, dass Nutzer der KI mehr Vertrauen schenken, wenn sie den Analyseweg nachvollziehen können. Basierend auf den Mittelwerten der gesendeten Nachrichten pro Teilnehmer berechneten wir für jede Dimension der HCT2-Skala eine Pearson-Korrelation.
+Wir analysierten die gesammelten Daten unter Anwendung verschiedener Tests. Zum einen untersuchten wir, ob sich der Workload bei Unterstützung durch KI signifikant von dem ohne KI-Einsatz unterschied. Diese Fragestellung überprüfte das Ergebnis der qualitativen Analyse, wonach der Einsatz von KI die Erkennung von Misinformationen für Benutzer erleichtert. Um dies zu testen, führten wir einen T-Test für abhängige Stichproben durch, wobei der KI-Einsatz als unabhängige Variable und der Workload als abhängige Variable diente. Des Weiteren untersuchten wir, ob sich die User Experience mit einer evaluativen KI signifikant von der mit einer empfehlenden KI unterschied. Hier führten wir einen T-Test für unabhängige Stichproben durch. Die User Experience stellte demnach die abhängige und der KI-Systemtyp die unabhängige Variable dar. In unserem letzten Test analysierten wir den statistischen Zusammenhang zwischen dem Alter der Befragten und dem Vertrauen in das System. Wir berechneten eine Pearson-Korrelation zwischen dem Alter und dem Mittelwert der HCT2-Skala.
 
 ![Ablaufdiagramm der Studie](src/survey_diagram.png){#fig-ablauf}
 
@@ -103,7 +123,6 @@ In den Interviews zeigte sich deutlich, dass die inhaltliche Richtigkeit der Üb
 
 ```{r tbl-zentrale_themen, results='asis'}
 #| echo: false
-library(kableExtra)
 
 df <- data.frame(
   Thema = c("Potenzialbewertung von KI als Werkzeug", 
@@ -141,51 +160,282 @@ if (knitr::is_latex_output()) {
 
 ```{r}
 #| echo: false
-suppressPackageStartupMessages({
-  library(dplyr)
-})
-
-data_combined <- read.csv("Daten/data_combined.csv")
 
 # Anzahl
-anzahl_teilnehmende <- length(data_combined$participantId)
+anzahl_teilnehmende <- length(data_complete$participantId)
 
 # Anzahl mit empfehlender/evaluativer KI
-anzahl_empfehlend <- sum(!is.na(data_combined$decision_rate_R))
-anzahl_evaluativ <- sum(!is.na(data_combined$decision_rate_E))
+anzahl_empfehlend <- sum(data_complete$system == "R", na.rm = TRUE)
+anzahl_evaluativ <- sum(data_complete$system == "E", na.rm = TRUE)
 
 # Alter (Mittelwert, Standardabweichung, Median, Minimum, Maximum)
-alter_mittelwert <- mean(data_combined$age, na.rm = TRUE)
-alter_sd <- sd(data_combined$age, na.rm = TRUE)
-alter_median <- median(data_combined$age, na.rm = TRUE)
-alter_min <- min(data_combined$age, na.rm = TRUE)
-alter_max <- max(data_combined$age, na.rm = TRUE)
+alter_mittelwert <- mean(data_complete$age, na.rm = TRUE)
+alter_sd <- sd(data_complete$age, na.rm = TRUE)
+alter_median <- median(data_complete$age, na.rm = TRUE)
+alter_min <- min(data_complete$age, na.rm = TRUE)
+alter_max <- max(data_complete$age, na.rm = TRUE)
 
 # Geschlecht (Prozentsätze)
-geschlecht_verteilung <- table(data_combined$gender)
+geschlecht_verteilung <- table(data_complete$gender)
 geschlecht_prozent <- prop.table(geschlecht_verteilung) * 100
 prozent_maennlich <- ifelse("1" %in% names(geschlecht_prozent), geschlecht_prozent[["1"]], 0)
 prozent_weiblich <- ifelse("2" %in% names(geschlecht_prozent), geschlecht_prozent[["2"]], 0)
 prozent_andere <- sum(geschlecht_prozent[!(names(geschlecht_prozent) %in% c("1", "2"))])
 
 # Vorwissen KI (Mittelwert, Standardabweichung)
-vorwissen_mittelwert <- mean(data_combined$aiknowledge, na.rm = TRUE)
-vorwissen_sd <- sd(data_combined$aiknowledge, na.rm = TRUE)
+vorwissen_mittelwert <- mean(data_complete$aiknowledge, na.rm = TRUE)
+vorwissen_sd <- sd(data_complete$aiknowledge, na.rm = TRUE)
 ```
 
-Unsere Stichprobe bestand aus insgesamt $N = `r anzahl_teilnehmende`$ vollständig ausgefüllten Umfragen, die in die statistische Analyse einbezogen wurden. Das Alter der Teilnehmenden lag im Mittel bei `r round(alter_mittelwert, 1)` Jahren ($SD = `r round(alter_sd, 1)`$, $Md = `r alter_median`$), mit einer Altersspanne von `r alter_min` bis `r alter_max` Jahren. `r round(prozent_weiblich, 1)` % der Befragten gaben an, sich als weiblich zu identifizierten, während sich `r round(prozent_maennlich, 1)` % als männlich identifizierten und ein Anteil von `r round(prozent_andere, 1)` % eine andere Geschlechtskategorie angab.
-
-Zusätzlich wurde das Vorwissen der Teilnehmenden zu Künstlicher Intelligenz erfasst, wobei die Selbsteinschätzung auf einer Skala von 1 (sehr wenig) bis 5 (sehr viel) erfolgte. Der Mittelwert lag bei $M = `r round(vorwissen_mittelwert, 2)`$ ($SD = `r round(vorwissen_sd, 2)`$), was auf ein neutrales Kenntnisniveau innerhalb der Stichprobe hinweist.
-
-Im Rahmen des Between-Subjects-Designs betrachteten wir zwei unabhängige Gruppen. Die Gruppe, der eine empfehlende KI präsentiert wurde, umfasste $n_1 = `r anzahl_empfehlend`$ Teilnehmende, während $n_2 = `r anzahl_evaluativ`$ Teilnehmende mit einer evaluativen KI interagierten. Diese Einteilung ermöglichte den Vergleich der unterschiedlichen KI-Typen. Für den Vergleich zwischen den Bedingungen mit und ohne KI wurde hingegen die gesamte Stichprobe als eine Gruppe betrachtet, da es sich hierbei um ein Within-Subjects-Design handelt.
+An unserer Studie nahmen volljährige Personen (*N* = `r anzahl_teilnehmende`) teil. Das Alter der Teilnehmenden lag im Mittel bei `r round(alter_mittelwert, 1)` (*SD* = `r round(alter_sd, 1)`, *Mdn* = `r alter_median`) bei einer Altersspanne von `r alter_min` bis `r alter_max` Jahren. `r round(prozent_weiblich, 1)` % der Befragten gaben an, weiblich zu sein, `r round(prozent_maennlich, 1)` % männlich und `r round(prozent_andere, 1)` % ordneten sich einer andere Geschlechtskategorie zu. Zusätzlich wurde das Vorwissen der Teilnehmenden zu Künstlicher Intelligenz erfasst, wobei die Selbsteinschätzung auf einer Skala von 1 (sehr wenig) bis 5 (sehr viel) erfolgte. Der Mittelwert lag bei *M* = `r round(vorwissen_mittelwert, 1)` (*SD* = `r round(vorwissen_sd, 1)`), was auf ein durchschnittliches Kenntnisniveau innerhalb der Stichprobe hinweist. Im Rahmen des Between-Subjects-Designs untersuchten wir zwei unabhängige Gruppen. Eine Gruppe (*n* = `r anzahl_empfehlend` erhielt eine empfehlende KI, während die andere Gruppe (*n* = `r anzahl_evaluativ`) mit einer evaluativen KI interagierten. Diese Einteilung ermöglichte den Vergleich der unterschiedlichen KI-Systeme hinsichtlich einer weiteren Variable. Für die Korrelationsanalyse sowie die Tests im Rahmen des Within-Subjects-Designs wurde die gesamte Stichprobe als eine einheitliche Gruppe betrachtet.
 
 ### Deskriptive Statistik
 
-[150 Wörter // Tabelle]{style="color:red"}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#| echo: false
+
+# Workload
+  # Baseline Summe
+    data_complete$b_dlr_wat_sum <- rowSums(data_complete[, c(
+    "b_dlr_wat_i",
+    "b_dlr_wat_w",
+    "b_dlr_wat_e",
+    "b_dlr_wat_m",
+    "b_dlr_wat_z",
+    "b_dlr_wat_a",
+    "b_dlr_wat_f",
+    "b_dlr_wat_b"
+  )])
+  
+  # KI Summe
+    data_complete$ki_dlr_wat_sum <- rowSums(data_complete[, c(
+    "ki_dlr_wat_i",
+    "ki_dlr_wat_w",
+    "ki_dlr_wat_e",
+    "ki_dlr_wat_m",
+    "ki_dlr_wat_z",
+    "ki_dlr_wat_a",
+    "ki_dlr_wat_f",
+    "ki_dlr_wat_b"
+    )])
+
+# UX
+  # Items invertieren
+  itemsToInvert <- c(3, 4, 5, 9, 10, 12, 17, 18, 19, 21, 23, 24, 25)
+  pattern <- paste0("^ueq_(", paste(itemsToInvert, collapse = "|"), ")$")
+  columnsToInvert <- grep(pattern, names(data_complete), value = TRUE)
+  data_UXinverted <- data_complete
+  data_UXinverted[columnsToInvert] <- 8 - data_complete[columnsToInvert]
+
+  # Mittelwert
+  data_UXinverted <- data_UXinverted %>%
+  mutate(ueq_mean = rowMeans(data_UXinverted[, paste0("ueq_", 1:26)]))
+  
+  # in evaluativ und empfehlend aufteilen
+  data_UXinverted <- data_UXinverted %>%
+  mutate(
+    ueq_mean = rowMeans(select(., paste0("ueq_", 1:26)), na.rm = TRUE),
+    ueq_e_mean = if_else(system == "E", ueq_mean, NA_real_),
+    ueq_r_mean = if_else(system == "R", ueq_mean, NA_real_)
+  )
+  
+# HCT
+  # Mittelwert
+  data_complete <- data_complete %>%
+  mutate(hct_mean = rowMeans(select(., hct_r01:hct_u05)))
+  
+
+#Cronbachs Alpha Berechnung
+a <- data_complete %>%
+select(starts_with("b_dlr_wat_")) %>%
+psych::alpha(check.keys = TRUE)
+
+alpha_b_dlr_wat <- round(a$total$raw_alpha, 2)
+
+b <- data_complete %>%
+select(starts_with("ki_dlr_wat_")) %>%
+psych::alpha(check.keys = TRUE)
+
+alpha_ki_dlr_wat <- round(b$total$raw_alpha, 2)
+
+c <- data_UXinverted %>%
+  filter(system == "E") %>%
+  select(paste0("ueq_", 1:26)) %>%
+  psych::alpha(check.keys = TRUE)
+
+alpha_ueq_e <- round(c$total$raw_alpha, 2)
+
+d <- data_UXinverted %>%
+  filter(system == "R") %>%
+  select(paste0("ueq_", 1:26)) %>%
+  psych::alpha(check.keys = TRUE)
+
+alpha_ueq_r <- round(d$total$raw_alpha, 2)
+
+e <- data_complete %>%
+select(starts_with("hct_")) %>%
+psych::alpha(check.keys = TRUE)
+
+alpha_hct <- round(e$total$raw_alpha, 2)
+```
+
+Unsere Deskriptive Statistik ist in @tbl-deskriptive_statistik dargestellt. Nach den Kriterien von George und Mallery [-@george-2010] liegt die Skala zum subjektiven Workload sowohl mit als auch ohne KI im Bereich einer akzeptablen Konsistenz (Cronbachs Alpha = `r sub("^0", "", as.character(alpha_b_dlr_wat))`). Unsere Skalen des User Experience Questionaire, sowohl für die evaluative als auch für die empfehlende KI liegen mit einem Cronbachs Alpha über .9 im Bereich der exzellenten Konsistenz. Gleiches gilt für den Human-Computer Trust Index. Damit verfügen alle verwendeten Messinstrumente über eine ausreichende Reliabilität, um in der weiteren Analyse aussagekräftige Ergebnisse zu liefern. Der Mittelwert des Workloads mit KI (*M* = `r round(mean(data_complete$ki_dlr_wat_sum), 1)`) liegt über dem des Workloads ohne KI (*M* =`r round(mean(data_complete$b_dlr_wat_sum), 1)`), genau wie die User Experience mit empfehlender KI (*M* =`r round(mean(data_UXinverted$ueq_r_mean, na.rm = TRUE), 1)`) über der mit evaluativer KI (*M* =`r round(mean(data_UXinverted$ueq_e_mean, na.rm = TRUE), 1)`) liegt. Das Vertrauen in das System, gemessen mithilfe der HCT-Skala, liegt im Mittel bei *M* = `r round(mean(data_complete$hct_mean), 1)` auf einer Skala von 1 bis 6. Dies lässt ein mittleres bis leicht positives Vertrauen der gesamten Stichprobe vermuten. Allerdings zeigt die Standardabweichung (*SD* = `r round(sd(data_complete$hct_mean), 1)`), dass die Bewertung des Vertrauens deutlich streut.
+
+```{r tbl-deskriptive_statistik, results='asis', echo=FALSE, message=FALSE, warning=FALSE}
+#| echo: false
+
+alpha_strs <- sapply(
+  c(alpha_b_dlr_wat, alpha_ki_dlr_wat, alpha_ueq_e, alpha_ueq_r, alpha_hct),
+  function(x) sub("^0", "", as.character(x))
+)
+
+df <- data.frame(
+  Variable = c( 
+            "Workload ohne KI",
+            "Workload mit KI",
+            "User Experience (UEQ) mit evaluativer KI",
+            "User Experience (UEQ) mit empfehlender KI",
+            "Human-Computer Trust"
+            ),
+  "Anzahl der Records" = c(
+                 sum(!is.na(data_complete$b_dlr_wat_sum)),
+                 sum(!is.na(data_complete$ki_dlr_wat_sum)),
+                 sum(!is.na(data_UXinverted$ueq_e_mean)),
+                 sum(!is.na(data_UXinverted$ueq_r_mean)),
+                 sum(!is.na(data_complete$hct_mean))
+                 ),
+  "Cronbachs Alpha" = c(alpha_strs),
+  Mittelwert = c(
+                 round(mean(data_complete$b_dlr_wat_sum), 1),
+                 round(mean(data_complete$ki_dlr_wat_sum), 1),
+                 round(mean(data_UXinverted$ueq_e_mean, na.rm = TRUE), 1),
+                 round(mean(data_UXinverted$ueq_r_mean, na.rm = TRUE), 1),
+                 round(mean(data_complete$hct_mean), 1)
+                 ),
+  Median = c(
+                 round(median(data_complete$b_dlr_wat_sum), 2),
+                 round(median(data_complete$ki_dlr_wat_sum), 2),
+                 round(median(data_UXinverted$ueq_e_mean, na.rm = TRUE), 2),
+                 round(median(data_UXinverted$ueq_r_mean, na.rm = TRUE), 2),
+                 round(median(data_complete$hct_mean), 2)
+                 ),
+  Min = c(
+                 round(min(data_complete$b_dlr_wat_sum)),
+                 round(min(data_complete$ki_dlr_wat_sum)),
+                 round(min(data_UXinverted$ueq_e_mean, na.rm = TRUE)),
+                 round(min(data_UXinverted$ueq_r_mean, na.rm = TRUE)),
+                 round(min(data_complete$hct_mean))
+                 ),
+  Max = c(
+                 round(max(data_complete$b_dlr_wat_sum)),
+                 round(max(data_complete$ki_dlr_wat_sum)),
+                 round(max(data_UXinverted$ueq_e_mean, na.rm = TRUE)),
+                 round(max(data_UXinverted$ueq_r_mean, na.rm = TRUE)),
+                 round(max(data_complete$hct_mean))
+                 ),
+  Standartabweichung = c(
+                 round(sd(data_complete$b_dlr_wat_sum), 1),
+                 round(sd(data_complete$ki_dlr_wat_sum), 1),
+                 round(sd(data_UXinverted$ueq_e_mean, na.rm = TRUE), 1),
+                 round(sd(data_UXinverted$ueq_r_mean, na.rm = TRUE), 1),
+                 round(sd(data_complete$hct_mean), 1)
+                 )
+)
+
+if (knitr::is_latex_output()) {
+  kable(df, format = "latex", booktabs = TRUE, caption = "Deskriptive Statistik", longtable = TRUE, linesep = "\\addlinespace") %>%
+    kable_styling(latex_options = c("hold_position")) %>%
+    column_spec(1, width = "7cm") %>%
+    column_spec(2, width = "2cm") %>%
+    column_spec(3, width = "2cm") %>%
+    column_spec(4, width = "2cm") %>%
+    column_spec(5, width = "2cm")
+}else if (knitr::is_html_output()) {
+  kable(df, format = "html", caption = "Deskriptive Statistik", escape = FALSE) %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE) %>%
+    column_spec(1, width = "60%") %>%
+    column_spec(2, width = "10%") %>%
+    column_spec(3, width = "10%") %>%
+    column_spec(4, width = "10%") %>%
+    column_spec(5, width = "10%")
+}
+```
 
 ### Inferenzstatistik
 
 [250 Wörter // 3 Plot Diagramme]{style="color:red"}
+
+```{r}
+#| echo: false
+
+# T-Test Workload mit with/without
+ttest_workload_with_without <- t.test(data_complete$b_dlr_wat_sum, data_complete$ki_dlr_wat_sum, paired = TRUE)
+
+# T-Test UEQ mit System
+data_KIsystem <- data_UXinverted %>%
+  filter(system == "E" | system == "R")
+
+ttest_ueq_system <- t.test(data_KIsystem$ueq_mean ~ data_KIsystem$system, alternative = "less")
+
+# Korrelation HCT mit Alter
+cor_hct_alter <- cor.test(data_complete$age, data_complete$hct_mean, method = "pearson")
+```
+**T-Test abhängig**
+T: `r round(ttest_workload_with_without$statistic, 2)` Df: `r round(ttest_workload_with_without$parameter, 0)` p:`r ttest_workload_with_without$p.value`
+Der gepaarte t-Test vergleicht die Mittelwerte der Summe DLR WAT zwischen zwei Bedingungen — Baseline und KI — bei denselben Teilnehmern.
+
+T = -4.34 bedeutet, dass die Werte in der KI-Bedingung im Durchschnitt deutlich höher sind als in der Baseline (da die Differenz Baseline minus KI negativ ist).
+
+Df = 175 entspricht der Anzahl der Paare minus 1.
+
+p ≈ 2.37 × 10⁻⁵ ist sehr klein, was auf eine hochsignifikante Differenz hinweist.
+
+
+**T-Test unabhängig**
+T: `r round(ttest_ueq_system$statistic, 2)` Df: `r round(ttest_ueq_system$parameter, 0)` p:`r ttest_ueq_system$p.value`
+Da der p-Wert kleiner als das übliche Signifikanzniveau von 0.05 (oder sogar 0.01) ist, kannst du die Nullhypothese ablehnen.
+Das heißt: Das System "E" hat eine signifikant kleinere durchschnittliche UEQ-Summe als System "R" (bei der Annahme, dass deine Hypothese alternative = "less" ist).
+
+**Korrelation**
+Korrelationskoeffizient r: `r round(cor_hct_alter$estimate, 2)`  
+p-Wert: `r signif(cor_hct_alter$p.value, 3)`  
+Konfidenzintervall: (`r round(cor_hct_alter$conf.int[1], 2)`, `r round(cor_hct_alter$conf.int[2], 2)`)
+Es gibt einen statistisch signifikanten, schwachen negativen Zusammenhang zwischen Alter und HCT. Der Effekt ist klein, und das Konfidenzintervall zeigt, dass die Unsicherheit relativ groß ist — die Korrelation könnte also auch nahe null sein. Dennoch deutet das Ergebnis darauf hin, dass mit steigendem Alter der HCT tendenziell etwas niedriger sein könnte.
+
+```{r my-plot, mittelwertvergleich_workload_with_without_KI}
+#| echo: false
+# Daten ins Long-Format bringen
+data_long <- data_complete %>%
+  select(b_dlr_wat_sum, ki_dlr_wat_sum) %>%
+  pivot_longer(cols = everything(), names_to = "system", values_to = "value") %>%
+  mutate(system = recode(system, b_dlr_wat_sum = "Baseline", ki_dlr_wat_sum = "KI"))
+
+# Plot
+ggplot(data_long, aes(x = system, y = value)) +
+  stat_summary(fun = mean, geom = "point", size = 3, color = "blue") +
+  stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width = 0.2) +
+  labs(x = "System", y = "Summe DLR WAT", title = "Mittelwertvergleich: Baseline vs. KI") +
+  theme_minimal()
+```
+
+
+```{r my-plot, mittelwertvergleich_ueq_system}
+#| echo: false
+ggplot(data_KIsystem, aes(x = system , y = ueq_mean)) +
+  stat_summary(fun = mean, geom = "point", size = 3, color = "blue") +
+  stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width = 0.2) +
+  labs(x = "KI-System", y = "UEQ-Mittelwert", title = "Mittelwertvergleich: UEQ nach KI-System") +
+  theme_minimal()
+```
+
+```{r my-plot, fig.cap="Scatterplots von Age vs. HCT-Variablen mit Regressionslinien", fig.height=4, fig.width=6, warning=FALSE, message=FALSE}
+#| echo: false
+ggplot(data_complete, aes(x = age, y = hct_mean)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", color = "blue", se = FALSE) +
+  labs(title = "Alter vs. hct_mean", x = "Alter", y = "hct_mean") +
+  theme_minimal()
+```
 
 # Diskussion
 
@@ -218,210 +468,3 @@ https://dsslab.hciuse.sh/study/pilot?groupId=gr-a3
 *(Bitte im Browser auf einem PC oder Tablet öffnen.)*
 
 **Vergütung:** Studierende der Medieninformatik oder Psychologie an der Universität zu Lübeck können 1 VP-Stunde erhalten. Wichtig: Teilnehmende an der Veranstaltung SMNF dürfen die Studie nicht bearbeiten.
-
-```{r, tbl-ksehfbk, results='asis',  echo=FALSE, message=FALSE, warning=FALSE }
-
-
-library(dplyr)
-library(kableExtra)
-library(psych)
-library(ggplot2)
-
-data_combined <- read.csv("Daten/data_combined.csv") #Zieht Daten in data_combined
-
-data_filtered <- data_combined %>% #Daten nur von Menschen über 18
-  filter(age >= 18)
-
-#Summen von ueq und hct_r
-
-data_filtered$ueq_sum <- rowSums(data_filtered[, paste0("ueq_", 1:26)], na.rm = TRUE)
-
-data_filtered$hct_r_sum <- rowSums(data_filtered[, paste0("hct_r0", 1:5)], na.rm = TRUE)
-
-data_filtered$b_dlr_wat_sum <- rowSums(data_filtered[, c(
-  "b_dlr_wat_i",
-  "b_dlr_wat_w",
-  "b_dlr_wat_e",
-  "b_dlr_wat_m",
-  "b_dlr_wat_z",
-  "b_dlr_wat_a",
-  "b_dlr_wat_f",
-  "b_dlr_wat_b"
-)], na.rm = TRUE)
-data_filtered$b_dlr_wat_mean <- data_filtered$b_dlr_wat_sum / 8
-
-data_filtered$ki_dlr_wat_sum <- rowSums(data_filtered[, c(
-  "ki_dlr_wat_i",
-  "ki_dlr_wat_w",
-  "ki_dlr_wat_e",
-  "ki_dlr_wat_m",
-  "ki_dlr_wat_z",
-  "ki_dlr_wat_a",
-  "ki_dlr_wat_f",
-  "ki_dlr_wat_b"
-)], na.rm = TRUE)
-data_filtered$ki_dlr_wat_mean <- data_filtered$ki_dlr_wat_sum / 8
-
-
-#Cronbachs Alpha Berechnung
-                                   
-a <- data_filtered %>%
-select(starts_with("ueq_")) %>%
-psych::alpha(check.keys = TRUE)
-
-alpha_ueq <- round(a$total$raw_alpha, 2)
-
-b <- data_filtered %>%
-select(starts_with("hct_r")) %>%
-psych::alpha(check.keys = TRUE)
-
-alpha_hct_r <- round(b$total$raw_alpha, 2)
-
-c <- data_filtered %>%
-select(starts_with("b_dlr_wat_")) %>%
-psych::alpha(check.keys = TRUE)
-
-alpha_b_dlr_wat_ <- round(c$total$raw_alpha, 2)
-
-d <- data_filtered %>%
-select(starts_with("ki_dlr_wat_")) %>%
-psych::alpha(check.keys = TRUE)
-
-alpha_ki_dlr_wat_ <- round(d$total$raw_alpha, 2)
-
-
-#hct_r01 bis hct_r05
-
-#ueq_1 bis ueq_26
-
-#Tabelle
-
-
-df <- data.frame(
-  Variable = c( 
-            "Workload ohne KI",
-            "Workload mit KI",
-            "User Experience (UEQ)",
-            "Human- Computer Trust"),
-  "Anzahl_der_Records" = c(
-                 sum(!is.na(data_filtered$b_dlr_wat_mean)),
-                 sum(!is.na(data_filtered$ki_dlr_wat_mean)),
-                 sum(!is.na(data_filtered$ueq_sum)),
-                 sum(!is.na(data_filtered$hct_r_sum))),
-  "Cronbachs_Alpha" = c(
-                 alpha_b_dlr_wat_,
-                 alpha_ki_dlr_wat_,
-                 alpha_ueq,
-                 alpha_hct_r),
-  Mittelwert = c(
-                 round(mean(data_filtered$b_dlr_wat_mean)),
-                 round(mean(data_filtered$ki_dlr_wat_mean)),
-                 round(mean(data_filtered$ueq_sum)),
-                 round(mean(data_filtered$hct_r_sum))),
-  Median = c(
-                 round(median(data_filtered$b_dlr_wat_mean)),
-                 round(median(data_filtered$ki_dlr_wat_mean)),
-                 round(median(data_filtered$ueq_sum)),
-                 round(median(data_filtered$hct_r_sum))),
-  Min = c(
-                 round(min(data_filtered$b_dlr_wat_mean)),
-                 round(min(data_filtered$ki_dlr_wat_mean)),
-                 round(min(data_filtered$ueq_sum)),
-                 round(min(data_filtered$hct_r_sum))),
-  Max = c(
-                 round(max(data_filtered$b_dlr_wat_mean)),
-                 round(max(data_filtered$ki_dlr_wat_mean)),
-                 round(max(data_filtered$ueq_sum)),
-                 round(max(data_filtered$hct_r_sum))),
-  Standartabweichung = c(
-                 round(sd(data_filtered$b_dlr_wat_mean)),
-                 round(sd(data_filtered$ki_dlr_wat_mean)),
-                 round(sd(data_filtered$ueq_sum)),
-                 round(sd(data_filtered$hct_r_sum)))
-  
-)
-
-if (knitr::is_latex_output()) {
-  kable(df, format = "latex", booktabs = TRUE, caption = "Zentrale Themen der qualitativen Analyse", longtable = TRUE, linesep = "\\addlinespace", align = "c") %>%
-    kable_styling(latex_options = c("hold_position")) %>%
-    column_spec(1, width = "10cm", align = "c") %>%
-    column_spec(2, width = "1cm", align = "c") %>%
-    column_spec(3, width = "1cm", align = "c") %>%
-    column_spec(4, width = "1cm", align = "c") %>%
-    column_spec(5, width = "1cm", align = "c") %>%
-    column_spec(6, width = "1cm", align = "c") %>%
-    column_spec(7, width = "1cm", align = "c") %>%
-    column_spec(8, width = "10cm", align = "c")
-}else if (knitr::is_html_output()) {
-  kable(df, format = "html", caption = "Zentrale Themen der qualitativen Analyse", 
-        escape = FALSE, align = rep("c", ncol(df))) %>%
-    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, position = "center") %>%
-    column_spec(1, width = "30%") %>%
-    column_spec(2, width = "10%") %>%
-    column_spec(3, width = "10%") %>%
-    column_spec(4, width = "10%") %>%
-    column_spec(5, width = "10%") %>%
-    column_spec(6, width = "10%") %>%
-    column_spec(7, width = "10%") %>%
-    column_spec(8, width = "10%")
-}
-
-
-t.test(data_filtered$b_dlr_wat_w, data_filtered$ki_dlr_wat_w, paired = TRUE, alternative = "two.sided" )
-
-ggplot(data_filtered, aes(x = b_dlr_wat_w, y = ki_dlr_wat_w)) +
-  geom_point() +
-  
-  theme_minimal() +
-  labs(title = "Zusammenhang zwischen workload mit und ohne KI",
-       x = "Ohne KI",
-       y = "Mit KI")
-
-
-
-data_web <- read.csv("Daten/web_app_data.csv")
-
-
-
-
-
-
-nachrichten_anzahl <- data_web %>%
-  group_by(participantId) %>%
-  summarise(messages_sent = n())
-
-data_filtered <- data_filtered %>%
-  left_join(nachrichten_anzahl, by = "participantId")
-
-
-cor.test(data_filtered$messages_sent, data_filtered$hct_r_sum)
-
-ggplot(data_filtered, aes(x = messages_sent, y = hct_r_sum)) +
-  geom_point() +
-  
-  theme_minimal() +
-  labs(title = "Zusammenhang zwischen Nachrichtenanzahl und Ki Vertrauen",
-       x = "Anzahl",
-       y = "Vertrauen")
-
-
-
-
-data_complete <- merge(data_filtered, data_web, by = "participantId", all.x = TRUE)
-
-
-data_KIsystem <- data_complete %>%
-  filter(data_complete$system == "R" | data_complete$system == "E")
-
-
-t.test(data_KIsystem$ueq_sum ~ data_KIsystem$system, alternative = "less")
-
-
-ggplot(data_KIsystem, aes(x = system , y = ueq_sum)) +
-stat_summary(fun = mean, geom = "point", size = 3, color = "blue") +
-  stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width = 0.2) +
-  
-  theme_minimal() +
-  labs(x = "KI-System", y = "UEQ-Summe", title = "Mittelwertvergleich: UEQ nach KI-System")
-
-```
