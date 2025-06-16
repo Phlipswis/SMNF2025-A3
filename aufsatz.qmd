@@ -346,7 +346,7 @@ df <- data.frame(
 if (knitr::is_latex_output()) {
   kable(
     df,
-    col.names = c("Variable", "Anzahl der Records", "Cronbachs Alpha", "Mittelwert", "Median", "Min", "Max", "Standardabweichung"),
+    col.names = c("Variable", "Anzahl der Records", "Cronbachs Alpha", "Mittelwert", "Median", "Min", "Max", "Standard-abweichung"),
     format = "latex",
     booktabs = TRUE,
     caption = "Deskriptive Statistik",
@@ -357,7 +357,8 @@ if (knitr::is_latex_output()) {
     column_spec(2, width = "1.7cm") %>%
     column_spec(3, width = "1.7cm") %>%
     column_spec(4, width = "1.5cm") %>%
-    column_spec(5, width = "1.5cm")
+    column_spec(5, width = "1.5cm") %>%
+    column_spec(8, width = "1.7cm")
 }else if (knitr::is_html_output()) {
   kable(
     df,
