@@ -398,7 +398,7 @@ data_long <- data_complete %>%
 ggplot(data_long, aes(x = system, y = value)) +
   stat_summary(fun = mean, geom = "point", size = 3, color = "blue") +
   stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width = 0.2) +
-  labs(x = "System", y = "Workload (DLR)") +
+  labs(x = "Systemtyp", y = "Workload (DLR)") +
   theme_minimal()
 ```
 
@@ -408,7 +408,7 @@ ggplot(data_long, aes(x = system, y = value)) +
 ggplot(data_KIsystem, aes(x = system , y = ueq_mean)) +
   stat_summary(fun = mean, geom = "point", size = 3, color = "blue") +
   stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width = 0.2) +
-  labs(x = "KI-System", y = "User Experience (UEQ)") +
+  labs(x = "KI-Systemtyp", y = "User Experience (UEQ)") +
   theme_minimal()
 ```
 
