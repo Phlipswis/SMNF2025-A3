@@ -346,7 +346,7 @@ df <- data.frame(
 if (knitr::is_latex_output()) {
   kable(
     df,
-    col.names = c("Variable", "Anzahl der Records", "Cronbachs Alpha", "Mittelwert", "Median", "Min", "Max", "Standard-abweichung"),
+    col.names = c("Variable", "Anzahl der Records", "Cronbachs Alpha", "Mittelwert", "Median", "Min", "Max", "SD"),
     format = "latex",
     booktabs = TRUE,
     caption = "Deskriptive Statistik",
