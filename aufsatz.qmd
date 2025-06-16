@@ -334,7 +334,7 @@ df <- data.frame(
                  round(max(data_UXinverted$ueq_r_mean, na.rm = TRUE)),
                  round(max(data_complete$hct_mean))
                  ),
-  Standartabweichung = c(
+  Standardabweichung = c(
                  round(sd(data_complete$b_dlr_wat_sum), 1),
                  round(sd(data_complete$ki_dlr_wat_sum), 1),
                  round(sd(data_UXinverted$ueq_e_mean, na.rm = TRUE), 1),
@@ -344,18 +344,30 @@ df <- data.frame(
 )
 
 if (knitr::is_latex_output()) {
-  kable(df, format = "latex", booktabs = TRUE, caption = "Deskriptive Statistik", longtable = TRUE, linesep = "\\addlinespace") %>%
+  kable(
+    df,
+    col.names = c("Variable", "Anzahl der Records", "Cronbachs Alpha", "Mittelwert", "Median", "Min", "Max", "Standardabweichung"),
+    format = "latex",
+    booktabs = TRUE,
+    caption = "Deskriptive Statistik",
+    longtable = TRUE,
+    linesep = "\\addlinespace") %>%
     kable_styling(latex_options = c("hold_position")) %>%
-    column_spec(1, width = "7cm") %>%
-    column_spec(2, width = "2cm") %>%
-    column_spec(3, width = "2cm") %>%
-    column_spec(4, width = "2cm") %>%
-    column_spec(5, width = "2cm")
+    column_spec(1, width = "2cm") %>%
+    column_spec(2, width = "1.7cm") %>%
+    column_spec(3, width = "1.7cm") %>%
+    column_spec(4, width = "1.5cm") %>%
+    column_spec(5, width = "1.5cm")
 }else if (knitr::is_html_output()) {
-  kable(df, format = "html", caption = "Deskriptive Statistik", escape = FALSE) %>%
+  kable(
+    df,
+    col.names = c("Variable", "Anzahl der Records", "Cronbachs Alpha", "Mittelwert", "Median", "Min", "Max", "Standardabweichung"),
+    format = "html",
+    caption = "Deskriptive Statistik",
+    escape = FALSE) %>%
     kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE) %>%
-    column_spec(1, width = "60%") %>%
-    column_spec(2, width = "10%") %>%
+    column_spec(1, width = "30%") %>%
+    column_spec(2, width = "20%") %>%
     column_spec(3, width = "10%") %>%
     column_spec(4, width = "10%") %>%
     column_spec(5, width = "10%")
