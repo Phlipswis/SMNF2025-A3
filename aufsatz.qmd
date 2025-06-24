@@ -23,6 +23,7 @@ csl: apa.csl
 
 editor: visual
 ---
+
 ```{r setup}
 #| echo: false
 suppressPackageStartupMessages({
@@ -95,7 +96,7 @@ Für die Analyse verwendeten wir die Thematische Analyse nach Braun und Clarke [
 
 ## Quantitative Methode
 
-Im quantitativen Teil unserer Studie führten wir eine Online-Umfrage durch. Diese bestand aus einem Between-Subjects Design, welches den Unterschied zwischen einer evaluativen KI und einer empfehlenden KI untersucht. Sowie aus einem Within-Subject Design, um den Unterschied zwischen der Bewertung von Social Media Posts mit und ohne Unterstützung einer KI zu untersuchen. Es handelt sich bei unserer quantitativen Methode demnach um ein Mixed Design.
+Im quantitativen Teil unserer Studie führten wir eine Online-Umfrage durch. Diese bestand aus einem Between-Subjects Faktor, welches den Unterschied zwischen einer evaluativen KI und einer empfehlenden KI untersucht. Sowie aus einem Within-Subject Faktor, um den Unterschied zwischen der Bewertung von Social Media Posts mit und ohne Unterstützung einer KI zu untersuchen. Es handelt sich bei unserer quantitativen Methode demnach um ein Mixed Design.
 
 Die Rekrutierung erfolgte über einen schriftlichen Aufruf, der einen Link zur Umfrage enthielt (siehe [Anhang 1](#anhang-rekrutierung)). Den Text verbreiteten wir im Bekanntenkreis, sowie im „Studien und Umfragen“-Forum des Allgemeinen Studierendenausschusses der Universität zu Lübeck. Die Teilnehmenden mussten mindestens 18 Jahre alt sein, um den Datenschutz gemäß der Datenschutz-Grundverordnung gewährleisten zu können. Zudem setzten wir gute Deutschkenntnisse voraus, da unsere Umfrage ausschließlich auf Deutsch verfügbar war und mangelndes Sprachverständnis die Ergebnisse hätte beeinträchtigen können. Personen, die im Sommersemester 2025 an der Veranstaltung „Statistik und Methoden der Nutzerforschung“ der Universität zu Lübeck teilnahmen, waren ebenfalls von der Teilnahme ausgeschlossen, um Verzerrungen durch inhaltliche Vorkenntnisse zu vermeiden. Auf Grund des Interfaces musste die Umfrage an einem PC oder Laptop durchgeführt werden. Studenten der Universität zu Lübeck konnten als Vergütung eine Versuchspersonenstunde erhalten. Wir setzten uns das Ziel, mindestens 30 ausgefüllte Umfragen für eine ausreichend große Stichprobe zu erhalten, die im Zeitraum vom 24.05.2025 bis zum 02.06.2025 abgeschlossen werden mussten.
 
@@ -119,25 +120,20 @@ Allerdings wurde mehrfach betont, dass Transparenz eine entscheidende Voraussetz
 
 Im Hinblick auf die Effektivität der KI-gestützten Überprüfung wurde geäußert, dass die Kennzeichnung der geprüften Inhalte visuell hervorgehoben und schnell erkennbar sein sollte. Eine Person betonte, dass es „auf jeden Fall sehr sichtbar da sein \[sollte\]. Also das heißt, man soll nicht danach suchen müssen“ (TN_3, Z. 218–219). Besonders in sozialen Medien ist eine solche Sichtbarkeit entscheidend, da Nutzende Inhalte meist nur flüchtig wahrnehmen. Eine deutlich erkennbare Markierung kann in diesem Kontext dazu beitragen, die Wirksamkeit der KI-Überprüfung im Alltag zu erhöhen.
 
-In den Interviews zeigte sich deutlich, dass die inhaltliche Richtigkeit der Überprüfungen gegenüber einer schnellen Verfügbarkeit priorisiert wurde. So urteilte eine der Interviewten: „das braucht ein bisschen, aber dafür ist es dann richtig eingeordnet“ (TN_1, Z. 179–180). Diese Einschätzung ist besonders relevant, da verschiedene KI-Modelle jeweils Kompromisse in einer der beiden Kategorien eingehen. Wie bereits in unserer Literaturanalyse dargelegt, erfordern Modelle mit besonders hoher Genauigkeit einen derart hohen Rechenaufwand, dass sie für eine Echtzeit-Anwendung ungeeignet sind [@gondwe_can_2025]. Das Ergebnis unserer Interviews ist jedoch, dass eine hohe inhaltliche Präzision gegenüber einer sofortigen Einordnung klar bevorzugt wird.
-
 ```{r tbl-zentrale_themen, results='asis'}
 #| echo: false
 
 df <- data.frame(
   Thema = c("Potenzialbewertung von KI als Werkzeug", 
             "Transparenz durch Quellenangaben", 
-            "Sichtbarkeit der Kennzeichnung", 
-            "Priorisierung der inhaltlichen Korrektheit"),
+            "Sichtbarkeit der Kennzeichnung"),
   Definition = c("Einschätzung, dass KI bei der Identifikation von Misinformation unterstützen kann", 
                  "Forderung, dass die in der Überprüfung verwendeten Quellen offengelegt werden, um Transparenz zu gewährleisten", 
-                 "Forderung, dass die Kennzeichnung der KI-Überprüfung visuell hervorgehoben wird, um Effektivität zu gewährleisen", 
-                 "Bewertung, dass die inhaltliche Richtigkeit der Überprüfung wichtiger ist als deren schnelle Verfügbarkeit"),
+                 "Forderung, dass die Kennzeichnung der KI-Überprüfung visuell hervorgehoben wird, um Effektivität zu gewährleisen"),
   Zitat = c("„[…] Peer Review quasi dadurch zu schaffen […] also glaube ich schon sehr gut, dass KI für sowas absolut geeignet ist“ (TN_3, Zeile 83–86)", 
             "„Die Quellenangabe, dass man dann auch nachverfolgen kann, woher die Informationen kommen“ (TN_2, Zeile 99–100)", 
-            "„Es sollte auf jeden Fall sehr sichtbar da sein. Also das heißt, man soll nicht danach suchen müssen“ (TN_3, Zeile 218–219)", 
-            "„[…] dann speichert es falsch eingeordnet ab. Dann bringt einem das auch nichts, als wenn man sagt, das braucht ein bisschen, aber dafür ist es dann richtig eingeordnet und jeder kann es richtig abspeichern“ (TN_1, Zeile 177–180)")
-)
+            "„Es sollte auf jeden Fall sehr sichtbar da sein. Also das heißt, man soll nicht danach suchen müssen“ (TN_3, Zeile 218–219)")
+  )
 
 if (knitr::is_latex_output()) {
   kable(df, format = "latex", booktabs = TRUE, caption = "Zentrale Themen der qualitativen Analyse", longtable = TRUE, linesep = "\\addlinespace") %>%
@@ -187,7 +183,7 @@ vorwissen_mittelwert <- mean(data_complete$aiknowledge, na.rm = TRUE)
 vorwissen_sd <- sd(data_complete$aiknowledge, na.rm = TRUE)
 ```
 
-An unserer Studie nahmen ausschließlich volljährige Personen (*N* = `r anzahl_teilnehmende`) teil. Das Alter der Teilnehmenden lag im Mittel bei *M* = `r round(alter_mittelwert, 1)` (*SD* = `r round(alter_sd, 1)`, *Mdn* = `r alter_median`) bei einer Altersspanne von `r alter_min` bis `r alter_max` Jahren. `r round(prozent_weiblich, 1)` % der Befragten gaben an, weiblich zu sein, `r round(prozent_maennlich, 1)` % männlich und `r round(prozent_andere, 1)` % ordneten sich einer andere Geschlechtskategorie zu. Zusätzlich erfassten wir das Vorwissen der Teilnehmenden zu Künstlicher Intelligenz, wobei die Selbsteinschätzung auf einer Skala von 1 (sehr wenig) bis 5 (sehr viel) erfolgte. Der Mittelwert lag bei *M* = `r round(vorwissen_mittelwert, 1)` (*SD* = `r round(vorwissen_sd, 1)`), was auf ein durchschnittliches Kenntnisniveau innerhalb der Stichprobe hinweist. Im Rahmen eines Between-Subjects-Designs untersuchten wir zwei unabhängige Gruppen in der Stichprobe. Eine Gruppe (*n* = `r anzahl_empfehlend`) erhielt eine empfehlende KI, während die Teilnehmer der anderen Gruppe (*n* = `r anzahl_evaluativ`) mit einer evaluativen KI interagierten. Diese Einteilung ermöglichte den Vergleich der unterschiedlichen KI-Systeme hinsichtlich weiterer Variablen. Wir konnten alle erhobenen Daten in die Analyse einbeziehen.
+An unserer Studie nahmen ausschließlich volljährige Personen (*N* = `r anzahl_teilnehmende`) teil. Das Alter der Teilnehmenden lag im Mittel bei *M* = `r round(alter_mittelwert, 1)` (*SD* = `r round(alter_sd, 1)`, *Mdn* = `r alter_median`) bei einer Altersspanne von `r alter_min` bis `r alter_max` Jahren. `r round(prozent_weiblich, 1)` % der Befragten gaben an, weiblich zu sein, `r round(prozent_maennlich, 1)` % männlich und `r round(prozent_andere, 1)` % ordneten sich einer andere Geschlechtskategorie zu. Zusätzlich erfassten wir das Vorwissen der Teilnehmenden zu Künstlicher Intelligenz, wobei die Selbsteinschätzung auf einer Skala von 1 (sehr wenig) bis 5 (sehr viel) erfolgte. Der Mittelwert lag bei *M* = `r round(vorwissen_mittelwert, 1)` (*SD* = `r round(vorwissen_sd, 1)`), was auf ein durchschnittliches Kenntnisniveau innerhalb der Stichprobe hinweist. Im Rahmen des Between-Subjects Faktors untersuchten wir zwei unabhängige Gruppen in der Stichprobe. Eine Gruppe (*n* = `r anzahl_empfehlend`) erhielt eine empfehlende KI, während die Teilnehmer der anderen Gruppe (*n* = `r anzahl_evaluativ`) mit einer evaluativen KI interagierten. Diese Einteilung ermöglichte den Vergleich der unterschiedlichen KI-Systeme hinsichtlich weiterer Variablen. Wir konnten alle erhobenen Daten in die Analyse einbeziehen.
 
 ### Deskriptive Statistik
 
@@ -195,8 +191,8 @@ An unserer Studie nahmen ausschließlich volljährige Personen (*N* = `r anzahl_
 #| echo: false
 
 # Workload
-  # Baseline Summe
-    data_complete$b_dlr_wat_sum <- rowSums(data_complete[, c(
+  # Baseline Mittelwert
+    data_complete$b_dlr_wat_mean <- rowMeans(data_complete[, c(
     "b_dlr_wat_i",
     "b_dlr_wat_w",
     "b_dlr_wat_e",
@@ -206,9 +202,10 @@ An unserer Studie nahmen ausschließlich volljährige Personen (*N* = `r anzahl_
     "b_dlr_wat_f",
     "b_dlr_wat_b"
   )])
+    
   
-  # KI Summe
-    data_complete$ki_dlr_wat_sum <- rowSums(data_complete[, c(
+  # KI Mittelwert
+    data_complete$ki_dlr_wat_mean <- rowMeans(data_complete[, c(
     "ki_dlr_wat_i",
     "ki_dlr_wat_w",
     "ki_dlr_wat_e",
@@ -279,9 +276,7 @@ psych::alpha(check.keys = TRUE)
 alpha_hct <- round(e$total$raw_alpha, 2)
 ```
 
-Unsere Deskriptive Statistik ist in @tbl-deskriptive_statistik dargestellt. Nach den Kriterien von George und Mallery [-@george-2010] zeigte die von uns verwendete Skala zur Erfassung des Workloads sowohl in der Bedingung mit als auch ohne KI-Einsatz eine interne Konsistenz im akzeptablen Bereich (Cronbachs Alpha = `r sub("^0", "", as.character(alpha_b_dlr_wat))`). Die Fragebögen zur User Experience weisen sowohl für die evaluative als auch für die empfehlende KI mit einem Cronbachs Alpha von über .90 eine exzellente interne Konsistenz auf. Gleiches gilt für HCT2-Skala, die wir zur Messung des Vertrauens in das KI-System verwendeten. Demnach verfügen alle verwendeten Messinstrumente über eine ausreichende Reliabilität, um in der weiteren Analyse aussagekräftige Ergebnisse zu liefern.
-Der durchschnittliche Workload mit KI (*M* = `r round(mean(data_complete$ki_dlr_wat_sum), 1)`) liegt über dem des Workloads ohne KI (*M* = `r round(mean(data_complete$b_dlr_wat_sum), 1)`), genau wie der Mittelwert der User Experience mit empfehlender KI (*M* = `r round(mean(data_UXinverted$ueq_r_mean, na.rm = TRUE), 1)`) über dem Mittelwert der User Experience mit evaluativer KI (*M* = `r round(mean(data_UXinverted$ueq_e_mean, na.rm = TRUE), 1)`) liegt. Das Vertrauen in das KI-System, gemessen mithilfe der HCT2-Skala, liegt im Mittel bei *M* = `r round(mean(data_complete$hct_mean), 1)` auf einer Skala von 1 bis 6. Dies lässt ein mittleres bis leicht positives Vertrauen der gesamten Stichprobe vermuten. Allerdings zeigt die Standardabweichung (*SD* = `r round(sd(data_complete$hct_mean), 1)`), dass die Bewertung des Vertrauens in das KI-System streut.
-Der Median und der Mittelwert der jeweiligen Variablen unterscheiden sich nur gering, was darauf hindeutet, dass die Verteilungen der Skalenwerte weitgehend symmetrisch sind. Es gibt demnach keine oder nur wenige extreme Ausreißer, die den Mittelwert verzerren würden.
+Unsere Deskriptive Statistik ist in @tbl-deskriptive_statistik dargestellt. Nach den Kriterien von George und Mallery [-@george-2010] zeigte die von uns verwendete Skala zur Erfassung des Workloads sowohl in der Bedingung mit als auch ohne KI-Einsatz eine interne Konsistenz im akzeptablen Bereich (Cronbachs Alpha = `r sub("^0", "", as.character(alpha_b_dlr_wat))`). Die Fragebögen zur User Experience weisen sowohl für die evaluative als auch für die empfehlende KI mit einem Cronbachs Alpha von über .90 eine exzellente interne Konsistenz auf. Gleiches gilt für HCT2-Skala, die wir zur Messung des Vertrauens in das KI-System verwendeten. Demnach verfügen alle verwendeten Messinstrumente über eine ausreichende Reliabilität, um in der weiteren Analyse aussagekräftige Ergebnisse zu liefern. Der durchschnittliche Workload mit KI (*M* = `r round(mean(data_complete$ki_dlr_wat_mean), 1)`) liegt über dem des Workloads ohne KI (*M* = `r round(mean(data_complete$b_dlr_wat_mean), 1)`), genau wie der Mittelwert der User Experience mit empfehlender KI (*M* = `r round(mean(data_UXinverted$ueq_r_mean, na.rm = TRUE), 1)`) über dem Mittelwert der User Experience mit evaluativer KI (*M* = `r round(mean(data_UXinverted$ueq_e_mean, na.rm = TRUE), 1)`) liegt. Das Vertrauen in das KI-System, gemessen mithilfe der HCT2-Skala, liegt im Mittel bei *M* = `r round(mean(data_complete$hct_mean), 1)` auf einer Skala von 1 bis 6. Dies lässt ein mittleres bis leicht positives Vertrauen der gesamten Stichprobe vermuten. Allerdings zeigt die Standardabweichung (*SD* = `r round(sd(data_complete$hct_mean), 1)`), dass die Bewertung des Vertrauens in das KI-System streut. Der Median und der Mittelwert der jeweiligen Variablen unterscheiden sich nur gering, was darauf hindeutet, dass die Verteilungen der Skalenwerte weitgehend symmetrisch sind. Es gibt demnach keine oder nur wenige extreme Ausreißer, die den Mittelwert verzerren würden.
 
 ```{r tbl-deskriptive_statistik, results='asis', echo=FALSE, message=FALSE, warning=FALSE}
 #| echo: false
@@ -300,44 +295,44 @@ df <- data.frame(
             "Vertrauen in das KI-System (HCT2)"
             ),
   "Anzahl der Records" = c(
-                 sum(!is.na(data_complete$b_dlr_wat_sum)),
-                 sum(!is.na(data_complete$ki_dlr_wat_sum)),
+                 sum(!is.na(data_complete$b_dlr_wat_mean)),
+                 sum(!is.na(data_complete$ki_dlr_wat_mean)),
                  sum(!is.na(data_UXinverted$ueq_e_mean)),
                  sum(!is.na(data_UXinverted$ueq_r_mean)),
                  sum(!is.na(data_complete$hct_mean))
                  ),
   "Cronbachs Alpha" = c(alpha_strs),
   Mittelwert = c(
-                 round(mean(data_complete$b_dlr_wat_sum), 1),
-                 round(mean(data_complete$ki_dlr_wat_sum), 1),
+                 round(mean(data_complete$b_dlr_wat_mean), 1),
+                 round(mean(data_complete$ki_dlr_wat_mean), 1),
                  round(mean(data_UXinverted$ueq_e_mean, na.rm = TRUE), 1),
                  round(mean(data_UXinverted$ueq_r_mean, na.rm = TRUE), 1),
                  round(mean(data_complete$hct_mean), 1)
                  ),
   Median = c(
-                 round(median(data_complete$b_dlr_wat_sum), 2),
-                 round(median(data_complete$ki_dlr_wat_sum), 2),
+                 round(median(data_complete$b_dlr_wat_mean), 2),
+                 round(median(data_complete$ki_dlr_wat_mean), 2),
                  round(median(data_UXinverted$ueq_e_mean, na.rm = TRUE), 2),
                  round(median(data_UXinverted$ueq_r_mean, na.rm = TRUE), 2),
                  round(median(data_complete$hct_mean), 2)
                  ),
   Min = c(
-                 round(min(data_complete$b_dlr_wat_sum)),
-                 round(min(data_complete$ki_dlr_wat_sum)),
+                 round(min(data_complete$b_dlr_wat_mean)),
+                 round(min(data_complete$ki_dlr_wat_mean)),
                  round(min(data_UXinverted$ueq_e_mean, na.rm = TRUE)),
                  round(min(data_UXinverted$ueq_r_mean, na.rm = TRUE)),
                  round(min(data_complete$hct_mean))
                  ),
   Max = c(
-                 round(max(data_complete$b_dlr_wat_sum)),
-                 round(max(data_complete$ki_dlr_wat_sum)),
+                 round(max(data_complete$b_dlr_wat_mean)),
+                 round(max(data_complete$ki_dlr_wat_mean)),
                  round(max(data_UXinverted$ueq_e_mean, na.rm = TRUE)),
                  round(max(data_UXinverted$ueq_r_mean, na.rm = TRUE)),
                  round(max(data_complete$hct_mean))
                  ),
   Standardabweichung = c(
-                 round(sd(data_complete$b_dlr_wat_sum), 1),
-                 round(sd(data_complete$ki_dlr_wat_sum), 1),
+                 round(sd(data_complete$b_dlr_wat_mean), 1),
+                 round(sd(data_complete$ki_dlr_wat_mean), 1),
                  round(sd(data_UXinverted$ueq_e_mean, na.rm = TRUE), 1),
                  round(sd(data_UXinverted$ueq_r_mean, na.rm = TRUE), 1),
                  round(sd(data_complete$hct_mean), 1)
@@ -382,7 +377,7 @@ if (knitr::is_latex_output()) {
 #| echo: false
 
 # T-Test Workload mit with/without
-ttest_workload_with_without <- t.test(data_complete$b_dlr_wat_sum, data_complete$ki_dlr_wat_sum, paired = TRUE)
+ttest_workload_with_without <- t.test(data_complete$b_dlr_wat_mean, data_complete$ki_dlr_wat_mean, paired = TRUE)
 
 # T-Test UEQ mit System
 data_KIsystem <- data_UXinverted %>%
@@ -394,7 +389,7 @@ ttest_ueq_system <- t.test(data_KIsystem$ueq_mean ~ data_KIsystem$system, altern
 cor_hct_alter <- cor.test(data_complete$age, data_complete$hct_mean, method = "pearson")
 ```
 
-In @fig-plot_workload_kisystem ist der Vergleich des subjektiven Workloads zwischen Baseline und KI-Bedingung dargestellt. Für diesen Vergleich führten wir einen zweiseitigen t-Test mit abhängigen Stichproben durch. Ohne die Unterstützung von KI (*M* = `r round(mean(data_complete$b_dlr_wat_sum), 1)`, *SD* = `r round(sd(data_complete$b_dlr_wat_sum), 1)`) berichten die Teilnehmenden einen signifikant geringeren Workload als mit der Unterstützung von KI ((*M* = `r round(mean(data_complete$ki_dlr_wat_sum), 1)`, *SD* = `r round(sd(data_complete$ki_dlr_wat_sum), 1)`) (*t* = `r round(ttest_workload_with_without$statistic, 2)`, *p* < .001). Dies deutet darauf hin, dass der Einsatz von KI die Teilnehmenden mental mehr beansprucht, als die Beurteilung der Posts ohne den Einsatz von KI.
+In @fig-plot_workload_kisystem ist der Vergleich des subjektiven Workloads zwischen Baseline und KI-Bedingung dargestellt. Für diesen Vergleich führten wir einen zweiseitigen t-Test mit abhängigen Stichproben durch. Ohne die Unterstützung von KI (*M* = `r round(mean(data_complete$b_dlr_wat_mean), 1)`, *SD* = `r round(sd(data_complete$b_dlr_wat_mean), 1)`) berichten die Teilnehmenden einen signifikant geringeren Workload als mit der Unterstützung von KI (*M* = `r round(mean(data_complete$ki_dlr_wat_mean), 1)`, *SD* = `r round(sd(data_complete$ki_dlr_wat_mean), 1)`, *t* = `r round(ttest_workload_with_without$statistic, 2)`, *p* \< .001). Dies deutet darauf hin, dass der Einsatz von KI die Teilnehmenden mental mehr beansprucht, als die Beurteilung der Posts ohne den Einsatz von KI.
 
 In @fig-plot_ueq_system ist der Vergleich der User Experience zwischen empfehlender und evaluativer KI dargestellt. Für diesen Vergleich führten wir einen gerichteten t-Test mit unabhängigen Stichproben durch. Basierend auf unseren deskriptiven Daten lautete unsere Nullhypothese, dass der Mittelwert der User Experience bei der evaluativen KI größer oder gleich dem der empfehlenden KI ist. Die Differenz der durchschnittlichen User Experience mit empfehlender KI (*M* = `r round(mean(data_UXinverted$ueq_r_mean, na.rm = TRUE), 1)`, *SD* = `r round(sd(data_UXinverted$ueq_r_mean, na.rm = TRUE), 1)`) und evaluativer KI (*M* = `r round(mean(data_UXinverted$ueq_e_mean, na.rm = TRUE), 1)`, *SD* = `r round(sd(data_UXinverted$ueq_e_mean, na.rm = TRUE), 1)`) war signifikant (*t*(`r round(ttest_ueq_system$parameter, 0)`) = `r round(ttest_ueq_system$statistic, 2)`, *p* = `r sub("^0", "", formatC(ttest_ueq_system$p.value, format = "f", digits = 3))`). Dies deutet darauf hin, dass der Einsatz von empfehlender KI eine verbesserte User Experience mit sich bringt und unsere Nullhypothese verworfen wird.
 
@@ -404,9 +399,9 @@ In @fig-plot_hct_age ist der Zusammenhang zwischen dem Alter der Teilnehmenden u
 #| echo: false
 # Daten in Long-Format
 data_long <- data_complete %>%
-  select(b_dlr_wat_sum, ki_dlr_wat_sum) %>%
+  select(b_dlr_wat_mean, ki_dlr_wat_mean) %>%
   pivot_longer(cols = everything(), names_to = "system", values_to = "value") %>%
-  mutate(system = recode(system, b_dlr_wat_sum = "Baseline", ki_dlr_wat_sum = "KI"))
+  mutate(system = recode(system, b_dlr_wat_mean = "Baseline", ki_dlr_wat_mean = "KI"))
 
 # Plot
 ggplot(data_long, aes(x = system, y = value)) +
